@@ -45,7 +45,7 @@ ex_t::ex_t() : m_was_got( false ), m_info( "" )
 	get_alert_instance().set_alert();
 }
 
-ex_t::~ex_t() 
+ex_t::~ex_t() throw() 
 {
 	if ( m_was_got == false )
 	{

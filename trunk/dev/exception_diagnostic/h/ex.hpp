@@ -65,7 +65,8 @@ class ex_t
 
 			Set alert into OFF.
 		*/
-		~ex_t();
+		virtual 
+		~ex_t() throw() ;
 
 		//! Get info about failure.
 		/*!
