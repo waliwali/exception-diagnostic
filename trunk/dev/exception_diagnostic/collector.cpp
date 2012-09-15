@@ -36,13 +36,18 @@
 
 namespace exception_diagnostic {
 
-collector_t::collector_t() : m_info( "" ), m_delimiter( "\n" ) 
+collector_t::collector_t() 
+:	m_info( "" ), 
+	m_delimiter( "\n" ), 
+	m_have_actual_info( false )
 {
 }
 
 void
 collector_t::add( const std::string & info )
 {
+	m_have_actual_info = true;
+
 	if ( !m_info.empty() )
 		m_info += m_delimiter + info;
 	else
@@ -50,14 +55,22 @@ collector_t::add( const std::string & info )
 }
 
 std::string
-collector_t::info() const
+collector_t::info()
 {
+	m_have_actual_info = false;
 	return m_info;
+}
+
+bool
+collector_t::have_actual_info() const
+{
+	return m_have_actual_info;
 }
 
 void
 collector_t::clear()
 {
+	m_have_actual_info = false;
 	m_info = "";
 }
 

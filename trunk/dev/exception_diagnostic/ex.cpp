@@ -40,32 +40,29 @@
 
 namespace exception_diagnostic {
 
-ex_t::ex_t() : m_was_got( false ), m_info( "" )
+ex_t::ex_t()
 {
 	get_alert_instance().set_alert();
 }
 
 ex_t::~ex_t() throw() 
+
 {
-	if ( m_was_got == false )
+	if ( get_collector_instance().have_actual_info() )
 	{
 		get_err_stream_instance().stream() << 
 			get_collector_instance().info();
 	}
+
+	get_collector_instance().clear();
+
 	get_alert_instance().unset_alert();
 }
 
 std::string
-ex_t::info()
+ex_t::info() const
 {
-	if ( !m_was_got )
-	{
-		m_info = get_collector_instance().info();
-		get_collector_instance().clear();
-		m_was_got = true;
-	}
-
-	return m_info;
+	return get_collector_instance().info();
 }
 
 } /* namespace exception_diagnostic */
