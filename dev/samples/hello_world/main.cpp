@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include <stdexcept>
+
 //! Route class of diagnostic exceptions.
 class general_ex_t : 
 	public std::runtime_error, 
@@ -9,8 +11,10 @@ class general_ex_t :
 {
 	public:
 		explicit general_ex_t( const std::string & what ) : 
-			std::runtime_error( what )
+			std::runtime_error( what ), exception_diagnostic::ex_t()
 		{}
+
+		virtual ~general_ex_t() throw() {}
 };
 
 //! Some deep funtion, under the pass function.
