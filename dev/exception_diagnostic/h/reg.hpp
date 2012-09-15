@@ -38,6 +38,8 @@
 #include <exception_diagnostic/h/alert.hpp>
 #include <exception_diagnostic/h/collector.hpp>
 
+#include <string>
+
 namespace exception_diagnostic {
 
 //! Class for registration instance to diagnostic.
@@ -46,7 +48,14 @@ class reg
 {
 	public:
 		//! Save link to the instance.
-		reg( const T & instance ) : m_instance( instance ) 
+		reg( 
+			//! Instance under control.
+			const T & instance, 
+			//! Comment to this instance. Default - no comment.
+			const std::string & comment = "" ) 
+		:
+			m_instance( instance ),
+			m_comment( comment )
 		{
 		}
 
@@ -57,13 +66,20 @@ class reg
 		{
 			if ( get_alert_instance().was_alert() )
 			{
-				get_collector_instance() << m_instance;
+				if ( m_comment.empty() )
+					get_collector_instance() << m_instance;
+				else
+					get_collector_instance() << 
+						m_comment << ":" << 
+						m_instance << ";";
 			}
 		}
 
 	private:
 		//! Link to the diagnostic object.
 		const T & m_instance;
+		//! Comment to this point.
+		const std::string m_comment;
 };
 
 } /* namespace exception_diagnostic */

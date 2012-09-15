@@ -73,13 +73,7 @@ class ex_t
 			Return all collected info about failure.
 		*/
 		std::string
-		info();
-
-	private:
-		//! Info was got ot not.
-		bool m_was_got;
-		//! Buffer of collected info.
-		std::string m_info;
+		info() const;
 };
 
 } /* namespace exception_diagnostic */

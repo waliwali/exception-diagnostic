@@ -64,11 +64,18 @@ class collector_t
 			\return all collected info.
 		*/
 		std::string
-		info() const;
+		info();
 
 		//! Clear collected info.
 		void
 		clear();
+
+		//! Have smth new info or not.
+		/*!
+			\retval true add() was, but info() not.
+		*/
+		bool
+		have_actual_info() const;
 
 		//! Set delimiter at adding.
 		void
@@ -77,6 +84,8 @@ class collector_t
 			const std::string & delimiter );
 
 	private:
+		//! All info was got or not.
+		bool m_have_actual_info;
 		//! All collected info.
 		std::string m_info;
 		//! Delimiter between pieces of collection.
