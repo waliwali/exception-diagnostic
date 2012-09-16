@@ -1,3 +1,5 @@
+require 'rubygems'
+
 require 'mxx_ru/cpp'
 
 MxxRu::Cpp::exe_target {
