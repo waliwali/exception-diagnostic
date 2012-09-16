@@ -8,7 +8,6 @@ MxxRu::Cpp::lib_target {
 
 	implib_path 'lib'
 
-	cpp_source "alert.cpp" 
 	cpp_source "err_stream.cpp" 
 	cpp_source "ex.cpp" 
 	cpp_source "collector.cpp" 

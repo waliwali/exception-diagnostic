@@ -54,8 +54,6 @@ class ex_t
 			was_got set to false, info to empty.
 
 			Use default collector.
-
-			\note set alert to ON.
 		*/
 		ex_t();
 
@@ -63,9 +61,9 @@ class ex_t
 			\note if someone don't get info about failure, 
 			this dtor dump info into the error stream.
 
-			Set alert into OFF.
 		*/
-		virtual 
+
+		virtual
 		~ex_t() throw() ;
 
 		//! Get info about failure.

@@ -36,27 +36,29 @@
 
 #include <exception_diagnostic/h/collector.hpp>
 #include <exception_diagnostic/h/err_stream.hpp>
-#include <exception_diagnostic/h/alert.hpp>
 
 namespace exception_diagnostic {
 
 ex_t::ex_t()
 {
-	get_alert_instance().set_alert();
 }
 
 ex_t::~ex_t() throw() 
-
 {
-	if ( get_collector_instance().have_actual_info() )
+	try
 	{
-		get_err_stream_instance().stream() << 
-			get_collector_instance().info();
+		if ( get_collector_instance().have_actual_info() )
+		{
+			get_err_stream_instance().stream() << 
+				get_collector_instance().info();
+		}
+
+		get_collector_instance().clear();
 	}
-
-	get_collector_instance().clear();
-
-	get_alert_instance().unset_alert();
+	catch ( ... )
+	{
+		// Defense of dtor.
+	}
 }
 
 std::string

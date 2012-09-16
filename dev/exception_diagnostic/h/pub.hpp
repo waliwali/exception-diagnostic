@@ -35,7 +35,6 @@
 #ifndef __EXCEPTION_DIAGNOSTIC__PUB_HPP__INCLUDED
 #define __EXCEPTION_DIAGNOSTIC__PUB_HPP__INCLUDED
 
-#include <exception_diagnostic/h/alert.hpp>
 #include <exception_diagnostic/h/collector.hpp>
 #include <exception_diagnostic/h/err_stream.hpp>
 #include <exception_diagnostic/h/reg.hpp>
