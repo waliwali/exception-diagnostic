@@ -1,27 +1,20 @@
+/*!
+	\file main.cpp
+	\brief This is simple example of exeption diagnostic.
+		Nothing superfluous.
+*/
+
 #include <exception_diagnostic/h/pub.hpp>
 
 #include <iostream>
 
 #include <stdexcept>
 
-//! Route class of diagnostic exceptions.
-class general_ex_t : 
-	public std::runtime_error, 
-	public exception_diagnostic::ex_t
-{
-	public:
-		explicit general_ex_t( const std::string & what ) : 
-			std::runtime_error( what ), exception_diagnostic::ex_t()
-		{}
-
-		virtual ~general_ex_t() throw() {}
-};
-
 //! Some deep funtion, under the pass function.
 void
 deep_function()
 {
-	throw general_ex_t( "Boom!" );
+	throw exception_diagnostic::ex_t();
 }
 
 //! Pass function. 
@@ -46,7 +39,7 @@ int main()
 	{
 		pass_function();
 	}
-	catch ( exception_diagnostic::ex_t & ex )
+	catch ( const exception_diagnostic::ex_t & ex )
 	{
 		// Print collected info into cout stream.
 		std::cout << ex.info() << std::endl;
