@@ -47,6 +47,9 @@ class reg
 {
 	public:
 		//! Save link to the instance.
+		/*!
+			\note automatically dump collector if it not empty.
+		*/
 		reg( 
 			//! Instance under control.
 			const T & instance, 
@@ -56,12 +59,14 @@ class reg
 			m_instance( instance ),
 			m_comment( comment )
 		{
+			if ( !get_collector_instance().is_empty() )
+				get_collector_instance().dump();
 		}
 
 		/*!
 			If default alert, activate diagnostic.
 		*/
-		~reg() 
+		~reg() throw()
 		{
 			if ( std::uncaught_exception() )
 			{

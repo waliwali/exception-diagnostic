@@ -33,6 +33,7 @@
 */
 
 #include <exception_diagnostic/h/collector.hpp>
+#include <exception_diagnostic/h/err_stream.hpp>
 
 namespace exception_diagnostic {
 
@@ -78,6 +79,19 @@ void
 collector_t::set_delimiter( const std::string & delimiter )
 {
 	m_delimiter = delimiter;
+}
+
+void
+collector_t::dump()
+{
+	get_err_stream_instance().stream() << info();
+	clear();
+}
+
+bool
+collector_t::is_empty() const
+{
+	return m_info.empty();
 }
 
 collector_t &

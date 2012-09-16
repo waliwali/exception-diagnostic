@@ -83,6 +83,20 @@ class collector_t
 			//! Delimiter of collecting.
 			const std::string & delimiter );
 
+		//! Get info from collector and dump according to the actual options.
+		/*!
+			\note clear internal info of collector.
+		*/
+		void
+		dump();
+
+		//! Empty collector or not.
+		/*!
+			\retval true empty.
+		*/
+		bool
+		is_empty() const;
+
 	private:
 		//! All info was got or not.
 		bool m_have_actual_info;
