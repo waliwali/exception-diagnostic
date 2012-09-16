@@ -35,7 +35,6 @@
 #ifndef __EXCEPTION_DIAGNOSTIC__REG_HPP__INCLUDED
 #define __EXCEPTION_DIAGNOSTIC__REG_HPP__INCLUDED
 
-#include <exception_diagnostic/h/alert.hpp>
 #include <exception_diagnostic/h/collector.hpp>
 
 #include <string>
@@ -64,14 +63,21 @@ class reg
 		*/
 		~reg() 
 		{
-			if ( get_alert_instance().was_alert() )
+			if ( std::uncaught_exception() )
 			{
-				if ( m_comment.empty() )
-					get_collector_instance() << m_instance;
-				else
-					get_collector_instance() << 
-						m_comment << ":" << 
-						m_instance << ";";
+				try
+				{
+					if ( m_comment.empty() )
+						get_collector_instance() << m_instance;
+					else
+						get_collector_instance() << 
+							m_comment << ":" << 
+							m_instance << ";";
+				}
+				catch ( ... )
+				{
+					// Defense of dtor.
+				}
 			}
 		}
 
