@@ -11,7 +11,7 @@ MxxRu::Cpp::composite_target( MxxRu::BUILD_ROOT ) {
 		MxxRu::enable_show_brief
 
 		implib_path 'lib'
-
+		
 		required_prj "exception_diagnostic/prj.rb" 
 
 		required_prj "gtest/prj.rb" 
