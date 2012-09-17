@@ -40,7 +40,15 @@
 
 	Showed features:
 	* Registration of class fields.
+	* Auto dump if user forgot get dump information 
+		at exception_diagnostic::ex_t using.
 
+	Instances 'reg' have to be after their undercontrol instances.
+
+	Developer can get info from colletor or not. 
+	But if this info not got, system automatically dump info 
+		according to actual options. 
+	This is showed for exception_diagnostic::ex_t behaviour.
 */
 
 #include <exception_diagnostic/h/pub.hpp>
@@ -143,8 +151,9 @@ int main()
 	}
 	catch ( const exception_diagnostic::ex_t & ex )
 	{
-		// Print collected info in cout stream.
-		std::cout << ex.info() << std::endl;
+		// User forgot dump in some stream.
+		// System automatically dump in std::cerr 
+		// according to actual options.
 	}
 
 	return 0;
