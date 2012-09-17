@@ -95,7 +95,7 @@ class collector_t
 			\retval true empty.
 		*/
 		bool
-		is_empty() const;
+		empty() const;
 
 	private:
 		//! All info was got or not.
