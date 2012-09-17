@@ -11,6 +11,10 @@ MxxRu::Cpp::lib_target {
 
 	implib_path 'lib'
 
+        if "unix" == toolset.tag( "target_os" )
+	    lib 'pthread'
+	end
+
 	target 'gtest'
 
 	cpp_source '1.6.0/src/gtest-all.cc'
