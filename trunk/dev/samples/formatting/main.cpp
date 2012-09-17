@@ -34,15 +34,20 @@
 
 /*!
 	\file main.cpp
-	\brief This is simple example of exeption diagnostic.
-		Nothing superfluous.
+	\brief This example show format tools.
 
 	\detail 
 
 	Showed features:
-	* Syntax of registration of instance.
-	* Intercepting of information.
-	* Receiving of collected information.
+	* Special comments for instances.
+	* Delimiters of group dumping.
+	* Registration of received by function instances.
+
+	Delimiter can be set at any time of runtime.
+
+	We can registrate any instance at any point.
+
+	Comments can use or not. Empty comment is equal 'no comment'.
 */
 
 #include <exception_diagnostic/h/pub.hpp>
@@ -51,41 +56,68 @@
 
 #include <stdexcept>
 
+using exception_diagnostic::reg;
+
+//! Route class of diagnostic exceptions.
+class general_ex_t : 
+	public std::runtime_error, 
+	public exception_diagnostic::ex_t
+{
+	public:
+		explicit general_ex_t( const std::string & what ) : 
+			std::runtime_error( what ), exception_diagnostic::ex_t()
+		{}
+
+		virtual ~general_ex_t() throw() {}
+
+};
+
 //! Some deep funtion, under the pass function.
 void
-deep_function()
+process_one( 
+	//! Value for processing.
+	unsigned int value )
 {
-	throw std::runtime_error( "Boom!" );
+	if ( value == 3 )
+		throw general_ex_t( "Boom!" );
 }
 
 //! Pass function. 
 /*!
-	This function have instances which need 
+	This function have some instances which need 
 	to dump information at failure.
 */
 void
-pass_function()
+process_all( unsigned int number )
 {
-	// Work instance.
-	std::string message( "Hello World!" );
-	// Auto-diagnostic instance.
-	exception_diagnostic::reg<std::string> reg_message( message );
+	// Registration of received instance.
+	reg<unsigned int> reg_number( number, "Overall numbers of task" );
 
-	deep_function();
+	// Internal counter.
+	unsigned int count = 0;
+	reg<unsigned int> reg_count( count, "Count of precessed numbers" );
+
+	// Process part.
+	for( unsigned int i = 0; i < number; ++i )
+	{
+		process_one( i );
+		++count;
+	}
 }
 
 int main()
 {
+	// Set delimiter for sequence of dump pieces.
+	exception_diagnostic::get_collector_instance().set_delimiter( "; " );
+
 	try
 	{
-		pass_function();
+		process_all( 5 );
 	}
-	catch ( const std::exception & ex )
+	catch ( const exception_diagnostic::ex_t & ex )
 	{
 		// Print collected info in cout stream.
-		std::cout << 
-			exception_diagnostic::
-			get_collector_instance().info() << std::endl;
+		std::cout << ex.info() << std::endl;
 	}
 
 	return 0;
