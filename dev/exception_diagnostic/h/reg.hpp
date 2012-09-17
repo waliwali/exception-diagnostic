@@ -60,7 +60,7 @@ class reg
 			m_instance( instance ),
 			m_comment( comment )
 		{
-			if ( !get_collector_instance().is_empty() )
+			if ( !get_collector_instance().empty() )
 				get_collector_instance().dump();
 		}
 

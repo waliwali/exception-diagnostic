@@ -89,7 +89,7 @@ collector_t::dump()
 }
 
 bool
-collector_t::is_empty() const
+collector_t::empty() const
 {
 	return m_info.empty();
 }
