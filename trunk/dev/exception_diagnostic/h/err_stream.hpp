@@ -39,9 +39,9 @@
 
 namespace exception_diagnostic {
 
-//! Controller of unexpected diagnostic stream.
+//! Controller of diagnostic stream.
 /*!
-	Provide opportunity to change stream at unexpected failures.
+	Provide opportunity to change stream at failures.
 */
 class err_stream_t
 {
