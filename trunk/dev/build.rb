@@ -16,4 +16,5 @@ MxxRu::Cpp::composite_target( MxxRu::BUILD_ROOT ) {
 		required_prj "samples/hello_world/prj.rb" 
 		required_prj "samples/several/prj.rb" 
 		required_prj "samples/formatting/prj.rb" 
+		required_prj "samples/class_fields/prj.rb" 
 }
