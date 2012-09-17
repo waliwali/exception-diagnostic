@@ -51,8 +51,6 @@ class ex_t
 	public:
 		//! Default ctor.
 		/*!
-			was_got set to false, info to empty.
-
 			Use default collector.
 		*/
 		ex_t();

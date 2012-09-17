@@ -72,7 +72,7 @@ class collector_t
 
 		//! Have smth new info or not.
 		/*!
-			\retval true add() was, but info() not.
+			\retval true add() was, but later info() not.
 		*/
 		bool
 		have_actual_info() const;
