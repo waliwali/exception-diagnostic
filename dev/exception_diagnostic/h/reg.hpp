@@ -38,6 +38,7 @@
 #include <exception_diagnostic/h/collector.hpp>
 
 #include <string>
+#include <sstream>
 
 namespace exception_diagnostic {
 
@@ -75,9 +76,11 @@ class reg
 					if ( m_comment.empty() )
 						get_collector_instance() << m_instance;
 					else
-						get_collector_instance() << 
-							m_comment << ":" << 
-							m_instance << ";";
+					{
+						std::stringstream buf;
+						buf << (m_comment + ":") << m_instance;
+						get_collector_instance() << buf.str();
+					}
 				}
 				catch ( ... )
 				{

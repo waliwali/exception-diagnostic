@@ -150,7 +150,7 @@ int main()
 	}
 	catch ( const exception_diagnostic::ex_t & ex )
 	{
-		// Print collected info into cout stream.
+		// Print collected info in cout stream.
 		std::cout << ex.info() << std::endl;
 	}
 
