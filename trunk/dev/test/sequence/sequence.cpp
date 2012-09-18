@@ -46,6 +46,8 @@
 #include <limits.h>
 #include "gtest/1.6.0/include/gtest/gtest.h"
 
+const std::string default_delimiter = "\n";
+
 using exception_diagnostic::reg;
 
 //! One stack test function. 
@@ -77,8 +79,12 @@ TEST(Sequence, FunctionStack)
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str(), 
-			"109\nXYZ\nabc" );
+			exception_diagnostic::get_collector_instance().info().c_str()
+		,	(
+			"109" + default_delimiter + 
+			"XYZ" + default_delimiter + 
+			"abc").c_str() 
+		);
 	}
 
 	exception_diagnostic::get_collector_instance().clear();
@@ -116,8 +122,9 @@ TEST(Sequence, DeepFunctionStack)
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str(), 
-			"123\nqwe" );
+			exception_diagnostic::get_collector_instance().info().c_str()
+		,	("123" + default_delimiter + "qwe").c_str() 
+		);
 	}
 
 	exception_diagnostic::get_collector_instance().clear();
@@ -163,8 +170,11 @@ TEST(Sequence, ClassFields)
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str(), 
-			"B\nA\nB\nA" );
+			exception_diagnostic::get_collector_instance().info().c_str()
+		,	("B" + default_delimiter + 
+			"A" + default_delimiter + 
+			"B" + default_delimiter + "A").c_str() 
+		);
 	}
 
 	exception_diagnostic::get_collector_instance().clear();
