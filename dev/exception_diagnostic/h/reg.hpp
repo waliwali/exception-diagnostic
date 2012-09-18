@@ -42,6 +42,8 @@
 
 namespace exception_diagnostic {
 
+const std::string default_comment_separator = ":";
+
 //! Class for registration instance to diagnostic.
 template <class T>
 class reg
@@ -78,7 +80,11 @@ class reg
 					else
 					{
 						std::stringstream buf;
-						buf << (m_comment + ":") << m_instance;
+						buf << 
+							m_comment << 
+							default_comment_separator << 
+							m_instance;
+
 						get_collector_instance() << buf.str();
 					}
 				}

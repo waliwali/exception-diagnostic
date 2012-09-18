@@ -37,9 +37,11 @@
 
 namespace exception_diagnostic {
 
+const std::string default_delimiter = "\n";
+
 collector_t::collector_t() 
 :	m_info( "" ), 
-	m_delimiter( "\n" ), 
+	m_delimiter( default_delimiter ), 
 	m_have_actual_info( false )
 {
 }
