@@ -45,6 +45,8 @@
 #include <limits.h>
 #include "gtest/1.6.0/include/gtest/gtest.h"
 
+using exception_diagnostic::reg;
+
 //! Some deep funtion, under the pass function.
 void
 deep_function()
@@ -61,7 +63,7 @@ void
 pass_function()
 {
 	unsigned int value = 120;
-	exception_diagnostic::reg<unsigned int> reg_value( value );
+	reg<unsigned int> reg_value( value );
 
 	deep_function();
 }
@@ -117,6 +119,46 @@ TEST(InterceptInfo, EmptyAfterDump)
 	EXPECT_STREQ( 
 		exception_diagnostic::get_collector_instance().info().c_str(), 
 		"" );
+}
+
+//! User class and operator <<.
+class foo_t
+{
+};
+
+std::ostream &
+operator << (std::ostream & o, const foo_t & f)
+{
+	return (o << "foo");
+}
+
+void
+user_class_function()
+{
+	foo_t foo;
+	reg<foo_t> reg_foo( foo );
+
+	throw std::runtime_error( "Boom!" );
+}
+
+// Test user class dump.
+TEST(InterceptInfo, UserClass) 
+{
+	try
+	{
+		user_class_function();
+
+		// pass_function must throw exception.
+		FAIL();
+	}
+	catch ( const std::exception & ex )
+	{
+		EXPECT_STREQ( 
+			exception_diagnostic::get_collector_instance().info().c_str(), 
+			"foo" );
+	}
+
+	exception_diagnostic::get_collector_instance().clear();
 }
 
 int 
