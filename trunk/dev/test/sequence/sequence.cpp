@@ -180,7 +180,6 @@ TEST(Sequence, ClassFields)
 	exception_diagnostic::get_collector_instance().clear();
 }
 
-
 int 
 main( int argc, char ** argv ) 
 {
