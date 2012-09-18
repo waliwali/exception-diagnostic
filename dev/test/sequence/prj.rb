@@ -9,7 +9,7 @@ MxxRu::Cpp::exe_target {
 
 	implib_path 'lib'
 
-	target 'sequence.test'
+	target 'test.sequence'
 
 	required_prj "exception_diagnostic/prj.rb" 
 	required_prj 'gtest/prj.rb'
