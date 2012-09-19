@@ -85,6 +85,7 @@ void
 collector_t::dump()
 {
 	get_err_stream_instance().stream() << info();
+	get_err_stream_instance().stream() << std::flush;
 	clear();
 }
 

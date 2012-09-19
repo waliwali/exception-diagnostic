@@ -34,7 +34,7 @@
 
 /*!
 	\file base.cpp
-	\brief Test sequence of registration and dumping.
+	\brief Test formatting of info.
 */
 
 #include <exception_diagnostic/h/pub.hpp>
