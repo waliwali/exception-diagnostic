@@ -46,32 +46,27 @@
 #include <limits.h>
 #include "gtest/1.6.0/include/gtest/gtest.h"
 
-const std::string default_delimiter = "\n";
-
 using exception_diagnostic::reg;
 
-//! One stack test function. 
+//! Test function. 
 void
-one_stack_test()
+test_function()
 {
-	std::string value1 = "abc";
-	reg<std::string> reg_value1( value1 );
-
 	std::string value2 = "XYZ";
 	reg<std::string> reg_value2( value2 );
 
-	std::string value3 = "109";
-	reg<std::string> reg_value3( value3 );
+	std::string value1 = "abc";
+	reg<std::string> reg_value1( value1 );
 
 	throw std::runtime_error( "Boom!" );
 }
 
-// Test stack of one function.
-TEST(Sequence, FunctionStack) 
+// Test of default formatting.
+TEST(Formatting, DelimiterDefault) 
 {
 	try
 	{
-		one_stack_test();
+		test_function();
 
 		// pass_function must throw exception.
 		FAIL();
@@ -81,40 +76,24 @@ TEST(Sequence, FunctionStack)
 		EXPECT_STREQ( 
 			exception_diagnostic::get_collector_instance().info().c_str()
 		,	(
-			"109" + exception_diagnostic::default_delimiter + 
-			"XYZ" + exception_diagnostic::default_delimiter + 
-			"abc").c_str() 
+			"abc" + exception_diagnostic::default_delimiter + 
+			"XYZ").c_str() 
 		);
 	}
 
 	exception_diagnostic::get_collector_instance().clear();
 }
 
+
 void
-deep_function_stack()
+test_user_delimiter( const std::string & user_delimiter )
 {
-	std::string value = "123";
-	reg<std::string> reg_value( value );
-
-	throw std::runtime_error( "Boom!" );
-}
-
-//! First function of stack.
-void
-function_stack()
-{
-	std::string value = "qwe";
-	reg<std::string> reg_value( value );
-
-	deep_function_stack();
-}
-
-// Test stack of one function.
-TEST(Sequence, DeepFunctionStack) 
-{
-	try
+		try
 	{
-		function_stack();
+		exception_diagnostic::get_collector_instance().
+			set_delimiter( user_delimiter );
+
+		test_function();
 
 		// pass_function must throw exception.
 		FAIL();
@@ -123,46 +102,52 @@ TEST(Sequence, DeepFunctionStack)
 	{
 		EXPECT_STREQ( 
 			exception_diagnostic::get_collector_instance().info().c_str()
-		,	("123" + default_delimiter + "qwe").c_str() 
+		,	(
+			"abc" + user_delimiter + 
+			"XYZ").c_str() 
 		);
 	}
+
+	exception_diagnostic::get_collector_instance().
+		set_delimiter( exception_diagnostic::default_delimiter );
 
 	exception_diagnostic::get_collector_instance().clear();
 }
 
-//! Class with some fields.
-class foo_t
+// Test user long delimiter.
+TEST(Formatting, DelimiterUserLong) 
 {
-	public:
-		foo_t() : 
-			m_field_b( "B" ), reg_field_b( m_field_b ), 
-			m_field_a( "A" ), reg_field_a( m_field_a )
-		{}
-	private:
-		//! First created, last destroyed and dumped.
-		std::string m_field_a;
-		reg<std::string> reg_field_a;
+	test_user_delimiter( "ASD" );
+}
 
-		//! Last created, first destriyed and dumped.
-		std::string m_field_b;
-		reg<std::string> reg_field_b;
-};
+// Test user empty delimiter.
+TEST(Formatting, DelimiterEmpty) 
+{
+	test_user_delimiter( "" );
+}
 
+//! Test comment function. 
 void
-class_fields_test()
+test_comment_function()
 {
-	foo_t a;
-	foo_t b;
+	std::string value2 = "XYZ";
+	reg<std::string> reg_value2( value2, "comment" );
+
+	std::string value1 = "abc";
+	reg<std::string> reg_value1( value1, "" );
+
+	std::string value3 = "321";
+	reg<std::string> reg_value3( value3, "info" );
 
 	throw std::runtime_error( "Boom!" );
 }
 
-// Test stack of one function.
-TEST(Sequence, ClassFields) 
+// Test of comment.
+TEST(Formatting, Comment) 
 {
 	try
 	{
-		class_fields_test();
+		test_comment_function();
 
 		// pass_function must throw exception.
 		FAIL();
@@ -171,14 +156,16 @@ TEST(Sequence, ClassFields)
 	{
 		EXPECT_STREQ( 
 			exception_diagnostic::get_collector_instance().info().c_str()
-		,	("B" + default_delimiter + 
-			"A" + default_delimiter + 
-			"B" + default_delimiter + "A").c_str() 
+		,	(
+			"info:321" + exception_diagnostic::default_delimiter + 
+			"abc" + exception_diagnostic::default_delimiter + 
+			"comment:XYZ").c_str() 
 		);
 	}
 
 	exception_diagnostic::get_collector_instance().clear();
 }
+
 
 int 
 main( int argc, char ** argv ) 
