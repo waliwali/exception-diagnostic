@@ -32,12 +32,12 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include <exception_diagnostic/h/ex.hpp>
+#include <ex_diag/h/ex.hpp>
 
-#include <exception_diagnostic/h/collector.hpp>
-#include <exception_diagnostic/h/err_stream.hpp>
+#include <ex_diag/h/collector.hpp>
+#include <ex_diag/h/err_stream.hpp>
 
-namespace exception_diagnostic {
+namespace ex_diag {
 
 ex_t::ex_t()
 {
@@ -67,4 +67,4 @@ ex_t::info() const
 	return get_collector_instance().info();
 }
 
-} /* namespace exception_diagnostic */
+} /* namespace ex_diag */

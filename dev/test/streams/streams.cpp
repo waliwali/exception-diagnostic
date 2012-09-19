@@ -37,7 +37,7 @@
 	\brief Test streams and using of it.
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 #include <fstream>
@@ -49,7 +49,7 @@
 #include <limits.h>
 #include "gtest/1.6.0/include/gtest/gtest.h"
 
-using exception_diagnostic::reg;
+using ex_diag::reg;
 
 //! Test function. 
 void
@@ -90,16 +90,16 @@ TEST(Streams, File)
 	{
 		ASSERT_TRUE( out_file.good() );
 
-		exception_diagnostic::get_err_stream_instance().set_stream( out_file );
+		ex_diag::get_err_stream_instance().set_stream( out_file );
 
 		test_function();
 
-		// pass_function must throw exception.
+		// test_function must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
-		exception_diagnostic::get_collector_instance().dump();
+		ex_diag::get_collector_instance().dump();
 
 		std::ifstream in_file( filename.c_str(), std::ios::in );
 		const std::string log = read_file_to_string( in_file );
@@ -107,7 +107,7 @@ TEST(Streams, File)
 		EXPECT_STREQ( 
 			log.c_str()
 		,	(
-			"abc" + exception_diagnostic::default_delimiter + 
+			"abc" + ex_diag::default_delimiter + 
 			"XYZ").c_str() 
 		);
 	}
@@ -115,7 +115,7 @@ TEST(Streams, File)
 	out_file.close();
 	remove( filename.c_str() );
 
-	exception_diagnostic::get_err_stream_instance().set_stream( std::cerr );
+	ex_diag::get_err_stream_instance().set_stream( std::cerr );
 }
 
 // Test of changing stream to string stream.
@@ -125,26 +125,26 @@ TEST(Streams, StringStream)
 
 	try
 	{
-		exception_diagnostic::get_err_stream_instance().set_stream( stream );
+		ex_diag::get_err_stream_instance().set_stream( stream );
 
 		test_function();
 
-		// pass_function must throw exception.
+		// test_function must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
-		exception_diagnostic::get_collector_instance().dump();
+		ex_diag::get_collector_instance().dump();
 
 		EXPECT_STREQ( 
 			stream.str().c_str()
 		,	(
-			"abc" + exception_diagnostic::default_delimiter + 
+			"abc" + ex_diag::default_delimiter + 
 			"XYZ").c_str() 
 		);
 	}
 
-	exception_diagnostic::get_err_stream_instance().set_stream( std::cerr );
+	ex_diag::get_err_stream_instance().set_stream( std::cerr );
 }
 
 int 

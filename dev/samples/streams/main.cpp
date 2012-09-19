@@ -41,24 +41,24 @@
 	Showed features:
 	* Change of diagnostic stream.
 	* Auto dump if user forgot get dump information 
-		at exception_diagnostic::ex_t using.
+		at ex_diag::ex_t using.
 	* Process dump info by hand.
 
 	If stack unwinding took place, diagnostic system automatically dump 
 	info at first registration try.
 
-	If developer don't use exception_diagnostic::ex_t, 
+	If developer don't use ex_diag::ex_t, 
 	he can process info by himself (by hand).
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 #include <fstream>
 
 #include <stdexcept>
 
-using exception_diagnostic::reg;
+using ex_diag::reg;
 
 //! Some very deep funtion, under the deep function.
 void
@@ -107,7 +107,7 @@ int main()
 {
 	// Dump into log_file.
 	std::ofstream log_file( "log_file" );
-	exception_diagnostic::get_err_stream_instance().set_stream( log_file );
+	ex_diag::get_err_stream_instance().set_stream( log_file );
 
 	// Three runs.
 	// Only two of them will dump automatically.
@@ -117,12 +117,12 @@ int main()
 
 	// We can to pull down info by ourself.
 	// Check collector info.
-	if ( !exception_diagnostic::get_collector_instance().empty() )
+	if ( !ex_diag::get_collector_instance().empty() )
 	{
 		// Smth in collector.
 		// Change dump stream and dump.
-		exception_diagnostic::get_err_stream_instance().set_stream( std::cout );
-		exception_diagnostic::get_collector_instance().dump();
+		ex_diag::get_err_stream_instance().set_stream( std::cout );
+		ex_diag::get_collector_instance().dump();
 	}
 
 	return 0;

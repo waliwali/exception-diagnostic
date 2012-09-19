@@ -37,7 +37,7 @@
 	\brief Test formatting of info.
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 #include <stdexcept>
@@ -46,7 +46,7 @@
 #include <limits.h>
 #include "gtest/1.6.0/include/gtest/gtest.h"
 
-using exception_diagnostic::reg;
+using ex_diag::reg;
 
 //! Test function. 
 void
@@ -68,20 +68,20 @@ TEST(Formatting, DelimiterDefault)
 	{
 		test_function();
 
-		// pass_function must throw exception.
+		// test_function must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str()
+			ex_diag::get_collector_instance().info().c_str()
 		,	(
-			"abc" + exception_diagnostic::default_delimiter + 
+			"abc" + ex_diag::default_delimiter + 
 			"XYZ").c_str() 
 		);
 	}
 
-	exception_diagnostic::get_collector_instance().clear();
+	ex_diag::get_collector_instance().clear();
 }
 
 
@@ -90,28 +90,28 @@ test_user_delimiter( const std::string & user_delimiter )
 {
 		try
 	{
-		exception_diagnostic::get_collector_instance().
+		ex_diag::get_collector_instance().
 			set_delimiter( user_delimiter );
 
 		test_function();
 
-		// pass_function must throw exception.
+		// test_function must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str()
+			ex_diag::get_collector_instance().info().c_str()
 		,	(
 			"abc" + user_delimiter + 
 			"XYZ").c_str() 
 		);
 	}
 
-	exception_diagnostic::get_collector_instance().
-		set_delimiter( exception_diagnostic::default_delimiter );
+	ex_diag::get_collector_instance().
+		set_delimiter( ex_diag::default_delimiter );
 
-	exception_diagnostic::get_collector_instance().clear();
+	ex_diag::get_collector_instance().clear();
 }
 
 // Test user long delimiter.
@@ -149,21 +149,21 @@ TEST(Formatting, Comment)
 	{
 		test_comment_function();
 
-		// pass_function must throw exception.
+		// test_comment_function must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str()
+			ex_diag::get_collector_instance().info().c_str()
 		,	(
-			"info:321" + exception_diagnostic::default_delimiter + 
-			"abc" + exception_diagnostic::default_delimiter + 
+			"info:321" + ex_diag::default_delimiter + 
+			"abc" + ex_diag::default_delimiter + 
 			"comment:XYZ").c_str() 
 		);
 	}
 
-	exception_diagnostic::get_collector_instance().clear();
+	ex_diag::get_collector_instance().clear();
 }
 
 

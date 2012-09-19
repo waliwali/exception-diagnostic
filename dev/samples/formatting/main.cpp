@@ -50,22 +50,22 @@
 	Comments can use or not. Empty comment is equal 'no comment'.
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 
 #include <stdexcept>
 
-using exception_diagnostic::reg;
+using ex_diag::reg;
 
 //! Route class of diagnostic exceptions.
 class general_ex_t : 
 	public std::runtime_error, 
-	public exception_diagnostic::ex_t
+	public ex_diag::ex_t
 {
 	public:
 		explicit general_ex_t( const std::string & what ) : 
-			std::runtime_error( what ), exception_diagnostic::ex_t()
+			std::runtime_error( what ), ex_diag::ex_t()
 		{}
 
 		virtual ~general_ex_t() throw() {}
@@ -108,13 +108,13 @@ process_all( unsigned int number )
 int main()
 {
 	// Set delimiter for sequence of dump pieces.
-	exception_diagnostic::get_collector_instance().set_delimiter( "; " );
+	ex_diag::get_collector_instance().set_delimiter( "; " );
 
 	try
 	{
 		process_all( 5 );
 	}
-	catch ( const exception_diagnostic::ex_t & ex )
+	catch ( const ex_diag::ex_t & ex )
 	{
 		// Print collected info in cout stream.
 		std::cout << ex.info() << std::endl;

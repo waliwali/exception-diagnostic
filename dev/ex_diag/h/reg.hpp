@@ -32,15 +32,15 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef __EXCEPTION_DIAGNOSTIC__REG_HPP__INCLUDED
-#define __EXCEPTION_DIAGNOSTIC__REG_HPP__INCLUDED
+#ifndef __ex_diag__REG_HPP__INCLUDED
+#define __ex_diag__REG_HPP__INCLUDED
 
-#include <exception_diagnostic/h/collector.hpp>
+#include <ex_diag/h/collector.hpp>
 
 #include <string>
 #include <sstream>
 
-namespace exception_diagnostic {
+namespace ex_diag {
 
 const std::string default_comment_separator = ":";
 
@@ -102,6 +102,6 @@ class reg
 		const std::string m_comment;
 };
 
-} /* namespace exception_diagnostic */
+} /* namespace ex_diag */
 
 #endif

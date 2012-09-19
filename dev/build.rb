@@ -12,7 +12,7 @@ MxxRu::Cpp::composite_target( MxxRu::BUILD_ROOT ) {
 
 		implib_path 'lib'
 		
-		required_prj "exception_diagnostic/prj.rb" 
+		required_prj "ex_diag/prj.rb" 
 
 		required_prj "gtest/prj.rb" 
 		required_prj "test/base/prj.ut.rb" 

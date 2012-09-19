@@ -32,12 +32,12 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef __EXCEPTION_DIAGNOSTIC__ERR_STREAM_HPP__INCLUDED
-#define __EXCEPTION_DIAGNOSTIC__ERR_STREAM_HPP__INCLUDED
+#ifndef __ex_diag__ERR_STREAM_HPP__INCLUDED
+#define __ex_diag__ERR_STREAM_HPP__INCLUDED
 
 #include <ostream>
 
-namespace exception_diagnostic {
+namespace ex_diag {
 
 //! Controller of diagnostic stream.
 /*!
@@ -74,6 +74,6 @@ class err_stream_t
 err_stream_t &
 get_err_stream_instance();
 
-} /* namespace exception_diagnostic */
+} /* namespace ex_diag */
 
 #endif

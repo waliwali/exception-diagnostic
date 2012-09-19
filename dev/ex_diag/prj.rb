@@ -4,7 +4,7 @@ require 'mxx_ru/cpp'
 
 MxxRu::Cpp::lib_target {
 
-	target "exception_diagnostic"
+	target "ex_diag"
 
 	implib_path 'lib'
 

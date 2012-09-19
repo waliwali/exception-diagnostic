@@ -32,12 +32,12 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef __EXCEPTION_DIAGNOSTIC__EX_HPP__INCLUDED
-#define __EXCEPTION_DIAGNOSTIC__EX_HPP__INCLUDED
+#ifndef __ex_diag__EX_HPP__INCLUDED
+#define __ex_diag__EX_HPP__INCLUDED
 
 #include <string>
 
-namespace exception_diagnostic {
+namespace ex_diag {
 
 //! Class of root exceptions using.
 /*!
@@ -72,6 +72,6 @@ class ex_t
 		info() const;
 };
 
-} /* namespace exception_diagnostic */
+} /* namespace ex_diag */
 
 #endif
