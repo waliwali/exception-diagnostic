@@ -40,6 +40,8 @@
 
 namespace exception_diagnostic {
 
+const std::string default_delimiter = "\n";
+
 //! Collect info about failure.
 class collector_t
 {

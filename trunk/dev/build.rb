@@ -17,6 +17,7 @@ MxxRu::Cpp::composite_target( MxxRu::BUILD_ROOT ) {
 		required_prj "gtest/prj.rb" 
 		required_prj "test/base/prj.ut.rb" 
 		required_prj "test/sequence/prj.ut.rb" 
+		required_prj "test/formatting/prj.ut.rb" 
 
 		required_prj "samples/hello_world/prj.rb" 
 		required_prj "samples/several/prj.rb" 
