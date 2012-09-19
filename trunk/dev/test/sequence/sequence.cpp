@@ -37,7 +37,7 @@
 	\brief Test sequence of registration and dumping.
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 #include <stdexcept>
@@ -48,7 +48,7 @@
 
 const std::string default_delimiter = "\n";
 
-using exception_diagnostic::reg;
+using ex_diag::reg;
 
 //! One stack test function. 
 void
@@ -73,21 +73,21 @@ TEST(Sequence, FunctionStack)
 	{
 		one_stack_test();
 
-		// pass_function must throw exception.
+		// one_stack_test must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str()
+			ex_diag::get_collector_instance().info().c_str()
 		,	(
-			"109" + exception_diagnostic::default_delimiter + 
-			"XYZ" + exception_diagnostic::default_delimiter + 
+			"109" + ex_diag::default_delimiter + 
+			"XYZ" + ex_diag::default_delimiter + 
 			"abc").c_str() 
 		);
 	}
 
-	exception_diagnostic::get_collector_instance().clear();
+	ex_diag::get_collector_instance().clear();
 }
 
 void
@@ -116,18 +116,18 @@ TEST(Sequence, DeepFunctionStack)
 	{
 		function_stack();
 
-		// pass_function must throw exception.
+		// function_stack must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str()
+			ex_diag::get_collector_instance().info().c_str()
 		,	("123" + default_delimiter + "qwe").c_str() 
 		);
 	}
 
-	exception_diagnostic::get_collector_instance().clear();
+	ex_diag::get_collector_instance().clear();
 }
 
 //! Class with some fields.
@@ -164,20 +164,20 @@ TEST(Sequence, ClassFields)
 	{
 		class_fields_test();
 
-		// pass_function must throw exception.
+		// class_fields_test must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str()
+			ex_diag::get_collector_instance().info().c_str()
 		,	("B" + default_delimiter + 
 			"A" + default_delimiter + 
 			"B" + default_delimiter + "A").c_str() 
 		);
 	}
 
-	exception_diagnostic::get_collector_instance().clear();
+	ex_diag::get_collector_instance().clear();
 }
 
 int 

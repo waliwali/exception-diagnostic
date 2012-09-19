@@ -32,13 +32,13 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef __EXCEPTION_DIAGNOSTIC__COLLECTOR_HPP__INCLUDED
-#define __EXCEPTION_DIAGNOSTIC__COLLECTOR_HPP__INCLUDED
+#ifndef __ex_diag__COLLECTOR_HPP__INCLUDED
+#define __ex_diag__COLLECTOR_HPP__INCLUDED
 
 #include <string>
 #include <sstream>
 
-namespace exception_diagnostic {
+namespace ex_diag {
 
 const std::string default_delimiter = "\n";
 
@@ -131,6 +131,6 @@ operator << ( collector_t & c, const T & v )
 collector_t &
 get_collector_instance();
 
-} /* namespace exception_diagnostic */
+} /* namespace ex_diag */
 
 #endif

@@ -41,32 +41,32 @@
 	Showed features:
 	* Registration of class fields.
 	* Auto dump if user forgot get dump information 
-		at exception_diagnostic::ex_t using.
+		at ex_diag::ex_t using.
 
 	Instances 'reg' have to be after their undercontrol instances.
 
 	Developer can get info from colletor or not. 
 	But if this info not got, system automatically dump info 
 		according to actual options. 
-	This is showed for exception_diagnostic::ex_t behaviour.
+	This is showed for ex_diag::ex_t behaviour.
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 
 #include <stdexcept>
 
-using exception_diagnostic::reg;
+using ex_diag::reg;
 
 //! Route class of diagnostic exceptions.
 class general_ex_t : 
 	public std::runtime_error, 
-	public exception_diagnostic::ex_t
+	public ex_diag::ex_t
 {
 	public:
 		explicit general_ex_t( const std::string & what ) : 
-			std::runtime_error( what ), exception_diagnostic::ex_t()
+			std::runtime_error( what ), ex_diag::ex_t()
 		{}
 
 		virtual ~general_ex_t() throw() {}
@@ -149,7 +149,7 @@ int main()
 	{
 		pass_function();
 	}
-	catch ( const exception_diagnostic::ex_t & ex )
+	catch ( const ex_diag::ex_t & ex )
 	{
 		// User forgot dump in some stream.
 		// System automatically dump in std::cerr 

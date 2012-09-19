@@ -11,7 +11,7 @@ MxxRu::Cpp::exe_target {
 
 	target 'test.base'
 
-	required_prj "exception_diagnostic/prj.rb" 
+	required_prj "ex_diag/prj.rb" 
 	required_prj 'gtest/prj.rb'
 
 	cpp_source 'base.cpp'

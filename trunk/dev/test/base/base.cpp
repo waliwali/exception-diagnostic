@@ -37,7 +37,7 @@
 	\brief Test base functions.
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 #include <stdexcept>
@@ -45,7 +45,7 @@
 #include <limits.h>
 #include "gtest/1.6.0/include/gtest/gtest.h"
 
-using exception_diagnostic::reg;
+using ex_diag::reg;
 
 //! Some deep funtion, under the pass function.
 void
@@ -81,7 +81,7 @@ TEST(InterceptInfo, Simple)
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str(), 
+			ex_diag::get_collector_instance().info().c_str(), 
 			"120" );
 
 		EXPECT_STREQ( ex.what(), "Boom!" );
@@ -89,14 +89,14 @@ TEST(InterceptInfo, Simple)
 
 	// Collector must be fill after get in catch (there are no clear() or dump() ).
 	EXPECT_STREQ( 
-		exception_diagnostic::get_collector_instance().info().c_str(), 
+		ex_diag::get_collector_instance().info().c_str(), 
 		"120" );
 
 	// Test empty after clear.
-	exception_diagnostic::get_collector_instance().clear();
+	ex_diag::get_collector_instance().clear();
 
 	EXPECT_STREQ( 
-		exception_diagnostic::get_collector_instance().info().c_str(), 
+		ex_diag::get_collector_instance().info().c_str(), 
 		"" );
 }
 
@@ -112,12 +112,12 @@ TEST(InterceptInfo, EmptyAfterDump)
 	}
 	catch ( const std::exception & ex )
 	{
-		exception_diagnostic::get_collector_instance().dump();
+		ex_diag::get_collector_instance().dump();
 	}
 
 	// Collector must be fill after get in catch (there are no clear() or dump() ).
 	EXPECT_STREQ( 
-		exception_diagnostic::get_collector_instance().info().c_str(), 
+		ex_diag::get_collector_instance().info().c_str(), 
 		"" );
 }
 
@@ -148,17 +148,17 @@ TEST(InterceptInfo, UserClass)
 	{
 		user_class_function();
 
-		// pass_function must throw exception.
+		// user_class_function must throw exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
 	{
 		EXPECT_STREQ( 
-			exception_diagnostic::get_collector_instance().info().c_str(), 
+			ex_diag::get_collector_instance().info().c_str(), 
 			"foo" );
 	}
 
-	exception_diagnostic::get_collector_instance().clear();
+	ex_diag::get_collector_instance().clear();
 }
 
 int 

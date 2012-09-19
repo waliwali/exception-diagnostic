@@ -45,7 +45,7 @@
 	* Receiving of collected information.
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 
@@ -69,7 +69,7 @@ pass_function()
 	// Work instance.
 	std::string message( "Hello World!" );
 	// Auto-diagnostic instance.
-	exception_diagnostic::reg<std::string> reg_message( message );
+	ex_diag::reg<std::string> reg_message( message );
 
 	deep_function();
 }
@@ -84,7 +84,7 @@ int main()
 	{
 		// Print collected info in cout stream.
 		std::cout << 
-			exception_diagnostic::
+			ex_diag::
 			get_collector_instance().info() << std::endl;
 	}
 

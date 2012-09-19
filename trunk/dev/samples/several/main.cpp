@@ -43,7 +43,7 @@
 	* Several instances in one function and their sequence.
 	* User instances.
 	* User exceptions.
-	* Simple way of using exception_diagnostic::ex_t class.
+	* Simple way of using ex_diag::ex_t class.
 
 	System control actual state of instance: 
 	diagnostic get only value which was at exception moment.
@@ -55,22 +55,22 @@
 		overloading of << operator. 
 */
 
-#include <exception_diagnostic/h/pub.hpp>
+#include <ex_diag/h/pub.hpp>
 
 #include <iostream>
 
 #include <stdexcept>
 
-using exception_diagnostic::reg;
+using ex_diag::reg;
 
 //! Route class of diagnostic exceptions.
 class general_ex_t : 
 	public std::runtime_error, 
-	public exception_diagnostic::ex_t
+	public ex_diag::ex_t
 {
 	public:
 		explicit general_ex_t( const std::string & what ) : 
-			std::runtime_error( what ), exception_diagnostic::ex_t()
+			std::runtime_error( what ), ex_diag::ex_t()
 		{}
 
 		virtual ~general_ex_t() throw() {}
@@ -148,7 +148,7 @@ int main()
 	{
 		pass_function();
 	}
-	catch ( const exception_diagnostic::ex_t & ex )
+	catch ( const ex_diag::ex_t & ex )
 	{
 		// Print collected info in cout stream.
 		std::cout << ex.info() << std::endl;

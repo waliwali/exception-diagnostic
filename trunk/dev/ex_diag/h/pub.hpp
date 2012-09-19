@@ -32,34 +32,12 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include <exception_diagnostic/h/err_stream.hpp>
+#ifndef __ex_diag__PUB_HPP__INCLUDED
+#define __ex_diag__PUB_HPP__INCLUDED
 
-#include <iostream>
+#include <ex_diag/h/collector.hpp>
+#include <ex_diag/h/err_stream.hpp>
+#include <ex_diag/h/reg.hpp>
+#include <ex_diag/h/ex.hpp>
 
-namespace exception_diagnostic {
-
-err_stream_t::err_stream_t() : m_stream( &(std::cerr) ) 
-{
-}
-
-void
-err_stream_t::set_stream( std::ostream & o )
-{
-	m_stream = &o;
-}
-
-std::ostream &
-err_stream_t::stream()
-{
-	return *m_stream;
-}
-
-err_stream_t &
-get_err_stream_instance()
-{
-	static err_stream_t err_stream;
-	return err_stream;
-}
-
-} /* namespace exception_diagnostic */
-
+#endif
