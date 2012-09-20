@@ -52,6 +52,11 @@ class collector_t
 		*/
 		collector_t();
 
+		/*! 
+			Trying to dump() if not empty.
+		*/
+		~collector_t() throw();
+
 		//! Add info to collector.
 		/*!
 			\note usually one piece of info.
