@@ -44,6 +44,19 @@ collector_t::collector_t()
 {
 }
 
+collector_t::~collector_t() throw()
+{
+	try
+	{
+		if ( have_actual_info() )
+			dump();
+	}
+	catch ( ... )
+	{
+		// Defense of dtor.
+	}
+}
+
 void
 collector_t::add( const std::string & info )
 {
@@ -84,8 +97,7 @@ collector_t::set_delimiter( const std::string & delimiter )
 void
 collector_t::dump()
 {
-	get_err_stream_instance().stream() << info();
-	get_err_stream_instance().stream() << std::flush;
+	get_err_stream_instance().stream() << info() << std::flush;
 	clear();
 }
 
