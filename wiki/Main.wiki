@@ -4,6 +4,8 @@
 
 This library allow to use simple cpp-constructions to diagnistic different exception crashes in future.
 
+It's only C++ tool.
+
 = Details =
 
 All types of instances can be wrapped by library. So far application work fine this wrappers don't active. However, if application or sublibrary throw exception, and application catch this, library tools allow to get all diagnistic information about destroyed objects. 
