@@ -8,13 +8,13 @@ It's only C++ tool.
 
 = Details =
 
-All types of instances can be wrapped by library. So far application work fine this wrappers don't active. However, if application or sublibrary throw exception, and application catch this, library tools allow to get all diagnistic information about destroyed objects. 
+So far application work fine this wrappers don't active. However, if application or sublibrary throw exception, and application catch this, library tools allow to get all diagnistic information about destroyed objects. 
 
 Like stack trace it's the instance trace of failure.
 
-Library provide special easy-using tools to do this funtionality.
+Library provide special easy-using tools of this funtionality.
 
-[QuickGeneralDescription Quick General Description] of method show it quick and graphically.
+[QuickGeneralDescription Quick General Description] of method show geenral features quick and graphically.
 
 Besides of that, samples are present (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
 
@@ -23,3 +23,13 @@ Besides of that, samples are present (see [http://code.google.com/p/exception-di
 Library has been compiled and built on different operating systems. 
 
 It has been testing with Microsoft Visual C++ 7.0 and GCC compilers.
+
+== Features ==
+
+All types of instances can be wrapped and diagnosed by library.
+
+Diagnostic result can be sent to any std::ostream instance.
+
+Cross-compile.
+
+Minimal syntax and run-time resource using.
