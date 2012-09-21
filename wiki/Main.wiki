@@ -14,9 +14,9 @@ Like stack trace it's the instance trace of failure.
 
 Library provide special easy-using tools to do this funtionality.
 
-[QuickGeneralDescription] of method show it quick and graphically.
+[QuickGeneralDescription Quick General Description] of method show it quick and graphically.
 
-Besides of that, samples are present (see subversion trunk/tags).
+Besides of that, samples are present (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
 
 == Compile ==
 
