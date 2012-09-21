@@ -1,0 +1,21 @@
+#summary Introduction in Exeption Diagnostic.
+
+= Introduction =
+
+This library allow to use simple cpp-constructions to diagnistic different exception crashes in future.
+
+= Details =
+
+All types of instances can be wrapped by library. If application work fine, this wrappers don't active. Otherwise, if application throw exception or sublibrary throw exception, and application catch this, library tools allow to get all diagnistic information about destroyed objects. 
+
+Like stack trace it's the instance trace of failure.
+
+Library provide special easy-using tools to do this funtionality.
+
+Quick general description of method is showed here.
+
+== Compile ==
+
+Library has been compiled and built on different operating systems. 
+
+It has been testing with Microsoft Visual C++ 7.0 and GCC compilers.
