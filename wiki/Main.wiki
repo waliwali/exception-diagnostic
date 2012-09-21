@@ -12,7 +12,9 @@ Like stack trace it's the instance trace of failure.
 
 Library provide special easy-using tools to do this funtionality.
 
-[Quick general description] of method show it quick and graphically.
+[QuickGeneralDescription] of method show it quick and graphically.
+
+Besides of that, samples are present (see subversion trunk/tags).
 
 == Compile ==
 
