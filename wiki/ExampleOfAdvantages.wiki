@@ -133,7 +133,6 @@ To do it, we can only add one line:
 void
 parse_file( const std::string & filename ) 
 {
-	std::ifstream file( filename.c_str() );
 	ex_diag::reg<std::string> reg_file ( filename, "parse filename" );
 ...
 
