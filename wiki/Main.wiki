@@ -14,7 +14,7 @@ Like stack trace it's the instance trace of failure.
 
 Library provide special easy-using tools of this funtionality.
 
-Look to the [QuickGeneralDescription Quick General Description]. This page show general features quick and graphically.
+Look at the [QuickGeneralDescription Quick General Description]. This page show general features quick and graphically.
 
 The next guide page [ExampleOfAdvantages Example Of Advantages] can help quick and completely understand usefulness of the library.
 
