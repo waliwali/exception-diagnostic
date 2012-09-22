@@ -8,15 +8,17 @@ It's only C++ tool.
 
 = Details =
 
-So far application work fine this wrappers don't active. However, if application or sublibrary throw exception, and application catch this, library tools allow to get all diagnistic information about destroyed objects. 
+So far application work fine this wrappers don't active. However, if application or sublibrary throw exception, and application catch this, library tools allow to get all diagnistic information about objects which had been destroyed.
 
 Like stack trace it's the instance trace of failure.
 
 Library provide special easy-using tools of this funtionality.
 
-[QuickGeneralDescription Quick General Description] of method show geenral features quick and graphically.
+Look to the [QuickGeneralDescription Quick General Description]. This page show general features quick and graphically.
 
-Besides of that, samples are present (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
+The next guide page,[ExampleOfAdvantages Example Of Advantages], can help quick and completely understand usefulness of the library.
+
+Besides, samples are present (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
 
 == Compile ==
 

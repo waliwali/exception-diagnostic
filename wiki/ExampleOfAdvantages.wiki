@@ -159,3 +159,5 @@ Or do nothing if we have ex-inheritor instance:
 		// Dump will be at ex_diag::ex_t d'tor.
 	}
 }}}
+
+After a while of wide using, this library allow to quickly understand stack traces of failures and make development easier at all stages.
