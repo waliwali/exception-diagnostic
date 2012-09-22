@@ -1,0 +1,161 @@
+#summary Show advantages of using this tool.
+
+= Function =
+
+Let's look at some function. This is example and it's the part of action code.
+
+Function parse information of special data-file, check it and convert into internal representation.
+
+Only notice, that function have several sub-functions: get_utfmarker_line(), check_elements(), getline(), check_and_union_ranges().
+
+It's just example and function logic doesn't matter.
+
+{{{
+void
+parse_file( const std::string & filename ) 
+{
+    std::ifstream file( filename.c_str() );
+ 
+    if ( !file.good() )
+    {
+        throw phone_ranges_error_t( 
+            "Can't open file '" + filename + "' to parse." );
+    }
+ 
+    // Receive first line and cut marker (if it present).
+    elements_t elements = get_utfmarker_line( file );
+ 
+    // Parse all file and collect map.
+    ranges_t ranges;
+    while( true )
+    {
+        check_elements( elements, ranges );
+ 
+        ranges_t::const_iterator it = 
+            ranges.find( range_t( elements[0], elements[1] ) );
+ 
+        if ( it == ranges.end() )
+            ranges[ range_t( elements[0], elements[1] ) ] = elements[2];
+ 
+        if ( file.eof() )
+            break;
+ 
+        elements = getline( file );
+    }
+ 
+    check_and_union_ranges( ranges );
+ 
+    m_ranges = ranges;
+}
+}}}
+
+= Problem =
+
+Let's imagine, that we need to describe context 'filename' if something happened at this function. In other words, if exception occur, we would like to diagnose (log/send/show/..) filename.
+
+How we can do it?
+
+There are two examples of traditional solution below.
+
+== First: add info to flying exceptions ==
+
+{{{
+void
+parse_file( const std::string & filename ) 
+{
+	std::ifstream file( filename.c_str() );
+
+	try
+	{
+		...
+	}
+	catch( const std::runtime_error & ex )
+	{
+		throw std::runtime_error( 
+			ex.what() + " parse_file filename:" + filename + ";" );
+	}
+ 
+}
+}}}
+
+This way has several drawbacks:
+ * We need to capture all types of exceptions. As a result:
+   * A lot of catches (it leads to the huge code).
+   * We can easy forgot some type of exception at catch.
+   * We can't catch unknown types of exceptions.
+ * We need to write try (1) and catch (2) - it's two places of control. And we have to add one extra tab to all lines of function. All of this increases complexity of code perception.
+ * Catch create new action of exception instance (ex).
+
+== Second: pass info to sub-functions ==
+
+One of the ways:
+
+{{{
+void
+parse_file( const std::string & filename ) 
+{
+	std::ifstream file( filename.c_str() );
+ 
+...
+ 
+	elements_t elements = get_utfmarker_line( file, filename );
+
+...
+ 
+		check_elements( elements, ranges, filename );
+ 
+...
+
+		elements = getline( file, filename );
+
+...
+ 
+	check_and_union_ranges( ranges, filename );
+
+...
+}
+}}}
+
+There are several disadvantages:
+ * One extra parameter to every function:
+   * Code will be more complex and support will be painful.
+   * We must control every function. And most likely, we'll forgot some of this functions.
+   * Besides of passing parameter to function, we need to add information about filename to every throw of exception.
+ * We can't control foreign exceptions.
+
+= Library solution = 
+
+Library provide a wrapper, which automatically collect information if exception occur.
+
+To do it, we can only add one line:
+
+{{{
+void
+parse_file( const std::string & filename ) 
+{
+	std::ifstream file( filename.c_str() );
+	ex_diag::reg<std::string> reg_file ( filename, "parse filename" );
+...
+
+}}}
+
+At end-points, where we capture exceptions, we can use all diagnostic information or dump it automatically.
+
+Dump by hand:
+
+{{{
+	catch ( ... )
+	{
+		std::cout << 
+			ex_diag::get_collector_instance().info() << std::endl;
+	}
+}}}
+
+Or do nothing if we have ex-inheritor instance:
+
+{{{
+	catch ( const ex_diag::ex_t & ex )
+	{
+		// Dump will be at ex_diag::ex_t d'tor.
+	}
+}}}
