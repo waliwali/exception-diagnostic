@@ -14,38 +14,38 @@ It's just example and function logic doesn't matter.
 void
 parse_file( const std::string & filename ) 
 {
-    std::ifstream file( filename.c_str() );
+	std::ifstream file( filename.c_str() );
  
-    if ( !file.good() )
-    {
-        throw phone_ranges_error_t( 
-            "Can't open file '" + filename + "' to parse." );
-    }
+	if ( !file.good() )
+	{
+		throw phone_ranges_error_t( 
+			"Can't open file '" + filename + "' to parse." );
+	}
  
-    // Receive first line and cut marker (if it present).
-    elements_t elements = get_utfmarker_line( file );
+	// Receive first line and cut marker (if it present).
+	elements_t elements = get_utfmarker_line( file );
  
-    // Parse all file and collect map.
-    ranges_t ranges;
-    while( true )
-    {
-        check_elements( elements, ranges );
+	// Parse all file and collect map.
+	ranges_t ranges;
+	while( true )
+	{
+		check_elements( elements, ranges );
  
-        ranges_t::const_iterator it = 
-            ranges.find( range_t( elements[0], elements[1] ) );
+		ranges_t::const_iterator it = 
+			ranges.find( range_t( elements[0], elements[1] ) );
  
-        if ( it == ranges.end() )
-            ranges[ range_t( elements[0], elements[1] ) ] = elements[2];
+		if ( it == ranges.end() )
+			ranges[ range_t( elements[0], elements[1] ) ] = elements[2];
  
-        if ( file.eof() )
-            break;
+		if ( file.eof() )
+			break;
  
-        elements = getline( file );
-    }
+		elements = getline( file );
+	}
  
-    check_and_union_ranges( ranges );
+	check_and_union_ranges( ranges );
  
-    m_ranges = ranges;
+	m_ranges = ranges;
 }
 }}}
 
@@ -84,7 +84,7 @@ This way has several drawbacks:
    * We can easy forgot some type of exception at catch.
    * We can't catch unknown types of exceptions.
  * We need to write try (1) and catch (2) - it's two places of control. And we have to add one extra tab to all lines of function. All of this increases complexity of code perception.
- * Catch create new action of exception instance (ex).
+ * Catch initiate c'tor of exception instance (ex).
 
 == Second: pass info to sub-functions ==
 
@@ -120,14 +120,14 @@ There are several disadvantages:
  * One extra parameter to every function:
    * Code will be more complex and support will be painful.
    * We must control every function. And most likely, we'll forgot some of this functions.
-   * Besides of passing parameter to function, we need to add information about filename to every throw of exception.
+   * Besides of passing parameter to function, we need to add information about filename to every throw place.
  * We can't control foreign exceptions.
 
 = Library solution = 
 
 Library provide a wrapper, which automatically collect information if exception occur.
 
-To do it, we can only add one line:
+To do it, we need to add just one line:
 
 {{{
 void
@@ -138,7 +138,7 @@ parse_file( const std::string & filename )
 
 }}}
 
-At end-points, where we capture exceptions, we can use all diagnostic information or dump it automatically.
+At end-points, where we capture exceptions, we can use all diagnostic information or it will be dumped automatically.
 
 Dump by hand:
 

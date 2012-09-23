@@ -14,9 +14,9 @@ Like stack trace it's the instance trace of failure.
 
 Library provide special easy-using tools of this funtionality.
 
-Look at the [QuickGeneralDescription Quick General Description]. This page show general features quick and graphically.
+Look at the [QuickGeneralDescription Quick General Description]. This page show general features quickly and graphically.
 
-The next guide page [ExampleOfAdvantages Example Of Advantages] can help quick and completely understand usefulness of the library.
+The next guide page [ExampleOfAdvantages Example Of Advantages] can help quickly and completely understand usefulness of the library.
 
 Besides, samples are present (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
 
