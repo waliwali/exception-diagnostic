@@ -32,8 +32,8 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef __ex_diag__EX_HPP__INCLUDED
-#define __ex_diag__EX_HPP__INCLUDED
+#ifndef __EX_DIAG__EX_HPP__INCLUDED
+#define __EX_DIAG__EX_HPP__INCLUDED
 
 #include <string>
 

@@ -32,8 +32,8 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef __ex_diag__PUB_HPP__INCLUDED
-#define __ex_diag__PUB_HPP__INCLUDED
+#ifndef __EX_DIAG__PUB_HPP__INCLUDED
+#define __EX_DIAG__PUB_HPP__INCLUDED
 
 #include <ex_diag/h/collector.hpp>
 #include <ex_diag/h/err_stream.hpp>
