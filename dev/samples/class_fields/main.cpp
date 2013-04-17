@@ -34,21 +34,21 @@
 
 /*!
 	\file main.cpp
-	\brief This example show diagnoostic of class fields.
+	\brief This example shows the diagnosis of class fields.
 
 	\detail 
 
 	Showed features:
 	* Registration of class fields.
-	* Auto dump if user forgot get dump information 
+	* Auto dump if user forgot to get dump information 
 		at ex_diag::ex_t using.
 
 	Instances 'reg' have to be after their undercontrol instances.
 
 	Developer can get info from colletor or not. 
-	But if this info not got, system automatically dump info 
-		according to actual options. 
-	This is showed for ex_diag::ex_t behaviour.
+	But if this info wasn't got, system automatically dump info 
+		according to the actual options. 
+	This is showed for the ex_diag::ex_t behaviour.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -152,7 +152,7 @@ int main()
 	catch ( const ex_diag::ex_t & ex )
 	{
 		// User forgot dump in some stream.
-		// System automatically dump in std::cerr 
+		// System automatically dump into std::cerr 
 		// according to actual options.
 	}
 

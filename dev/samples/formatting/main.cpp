@@ -34,7 +34,7 @@
 
 /*!
 	\file main.cpp
-	\brief This example show format tools.
+	\brief This example shows format tools.
 
 	\detail 
 
@@ -45,9 +45,9 @@
 
 	Delimiter can be set at any time of runtime.
 
-	We can registrate any instance at any point.
+	We can register any instance at any point.
 
-	Comments can use or not. Empty comment is equal 'no comment'.
+	Comments can be used or not. Empty comment is equal 'no comment'.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -116,7 +116,7 @@ int main()
 	}
 	catch ( const ex_diag::ex_t & ex )
 	{
-		// Print collected info in cout stream.
+		// Print collected info into cout stream.
 		std::cout << ex.info() << std::endl;
 	}
 

@@ -34,20 +34,20 @@
 
 /*!
 	\file main.cpp
-	\brief This example show changing of diagnostic stream.
+	\brief This example shows changing of diagnostic stream.
 
 	\detail 
 
 	Showed features:
-	* Change of diagnostic stream.
-	* Auto dump if user forgot get dump information 
-		at ex_diag::ex_t using.
+	* Changing of diagnostic stream.
+	* Auto dump if user forgot to get dump information 
+		at the ex_diag::ex_t using.
 	* Process dump info by hand.
 
-	If stack unwinding took place, diagnostic system automatically dump 
-	info at first registration try.
+	If stack unwinding happened, diagnostic system automatically dump 
+	info at the first registration try.
 
-	If developer don't use ex_diag::ex_t, 
+	If developer doesn't use ex_diag::ex_t, 
 	he can process info by himself (by hand).
 */
 
@@ -70,7 +70,7 @@ deep_function()
 //! Pass function. 
 /*!
 	This function have some instances which need 
-	to dump information at failure.
+	to dump information at the failure.
 */
 void
 pass_function()
@@ -95,7 +95,7 @@ run_at_once()
 	catch ( const std::exception & ex )
 	{
 		// User forgot dump in some stream.
-		// User don't use diagnostic exception type, 
+		// User doesn't use diagnostic exception type, 
 		// and auto-dumping is off.
 
 		// However, first try of registration (after such stack 
@@ -115,7 +115,7 @@ int main()
 	run_at_once();
 	run_at_once();
 
-	// We can to pull down info by ourself.
+	// We can pull down info by ourself.
 	// Check collector info.
 	if ( !ex_diag::get_collector_instance().empty() )
 	{
