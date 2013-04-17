@@ -2,21 +2,21 @@
 
 = Introduction =
 
-This library allow to use simple cpp-constructions to diagnistic different exception crashes in future.
+This library allows use simple cpp-constructions for diagnistic different exception crashes in the future.
 
 It's only C++ tool.
 
 = Details =
 
-So far application work fine this wrappers don't active. However, if application or sublibrary throw exception, and application catch this, library tools allow to get all diagnistic information about objects which had been destroyed.
+So far application works fine this wrappers don't active. However, if application or sublibrary throws exception, and application catches this, library tools allow get all diagnistic information about objects which had been destroyed.
 
-Like stack trace it's the instance trace of failure.
+Like stack trace it's the instance trace of the failure.
 
-Library provide special easy-using tools of this funtionality.
+Library provides special easy-using tools of this funtionality.
 
-Look at the [QuickGeneralDescription Quick General Description]. This page show general features quickly and graphically.
+Look at the [QuickGeneralDescription Quick General Description]. This page shows general features quickly and graphically.
 
-The next guide page [ExampleOfAdvantages Example Of Advantages] can help quickly and completely understand usefulness of the library.
+The next guide page [ExampleOfAdvantages Example Of Advantages] can help you quickly and completely understand usefulness of the library.
 
 Besides, samples are present (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
 
@@ -24,11 +24,11 @@ Besides, samples are present (see [http://code.google.com/p/exception-diagnostic
 
 Library has been compiled and built on different operating systems. 
 
-It has been testing with Microsoft Visual C++ 7.0 and GCC compilers.
+It has tested with Microsoft Visual C++ 7.0/9.0 and gcc 4.1.2 compilers.
 
 == Features ==
 
-All types of instances can be wrapped and diagnosed by library.
+All types of instances can be wrapped and diagnosed by the library.
 
 Diagnostic result can be sent to any std::ostream instance.
 
