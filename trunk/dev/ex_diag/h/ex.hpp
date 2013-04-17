@@ -42,8 +42,8 @@ namespace ex_diag {
 //! Class of root exceptions using.
 /*!
 	Information about falure will be available by method info().
-	If it mthd don't called then application automatically sent 
-	information to the error stream. It's the std::err by default 
+	If it method doesn't called then application automatically send 
+	the information to the error stream. It's the std::err by default 
 	and can be changed by err_stream_t instance (see err_stream.hpp).
 */
 class ex_t
@@ -56,7 +56,7 @@ class ex_t
 		ex_t();
 
 		/*!
-			\note if someone don't get info about failure, 
+			\note if someone doesn't get info about failure, 
 			this dtor dump info into the error stream.
 
 		*/

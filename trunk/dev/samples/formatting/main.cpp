@@ -47,7 +47,7 @@
 
 	We can register any instance at any point.
 
-	Comments can be used or not. Empty comment is equal 'no comment'.
+	Comments can be used or not. Empty comment is equal to 'no comment'.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -84,7 +84,7 @@ process_one(
 
 //! Pass function. 
 /*!
-	This function have some instances which need 
+	This function has some instances which need 
 	to dump information at failure.
 */
 void
