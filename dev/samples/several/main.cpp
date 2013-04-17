@@ -34,7 +34,7 @@
 
 /*!
 	\file main.cpp
-	\brief This example show using of several simple features.
+	\brief This example shows using of several simple features.
 
 	\detail 
 
@@ -45,10 +45,10 @@
 	* User exceptions.
 	* Simple way of using ex_diag::ex_t class.
 
-	System control actual state of instance: 
-	diagnostic get only value which was at exception moment.
+	System controls actual state of instance: 
+	diagnosis get only value which was at exception moment.
 
-	Diagnostic info of instances will be printed in reverse order,
+	Diagnostic info of instances will be printed in the reverse order,
 		according to the dtor calls.
 
 	For diagnose our class objects it's require 
@@ -79,13 +79,13 @@ class general_ex_t :
 
 //! Special user class.
 /*!
-	To diagnostic that we need to overload << operator.
+	To diag we need to overload << operator.
 */
 class foo_t
 {
 };
 
-//! Dumping into stream o info about instance f.
+//! Dumping into stream o info about the instance f.
 std::ostream &
 operator << ( std::ostream & o, const foo_t & f )
 {
@@ -101,7 +101,7 @@ very_deep_function()
 
 //! Some deep funtion, under the pass function.
 /*!
-	This function have some instance which need 
+	This function has some instance which need 
 	to dump information at failure.
 */
 void
@@ -130,7 +130,7 @@ pass_function()
 	int x = 100;
 	reg<int> reg_x( x );
 
-	// System control actual state of instance.
+	// System controls actual state of instance.
 	float y = 10;
 	reg<float> reg_y( y );
 	y /= 100;
