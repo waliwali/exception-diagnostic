@@ -44,11 +44,11 @@
 		at the ex_diag::ex_t using.
 	* Process dump info by hand.
 
-	If stack unwinding happened, diagnostic system automatically dump 
+	If stack unwinding happened, the diagnostic system automatically dumps 
 	info at the first registration try.
 
 	If developer doesn't use ex_diag::ex_t, 
-	he can process info by himself (by hand).
+	he can process info by hand.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -69,7 +69,7 @@ deep_function()
 
 //! Pass function. 
 /*!
-	This function have some instances which need 
+	This function has some instances which need 
 	to dump information at the failure.
 */
 void
@@ -78,7 +78,7 @@ pass_function()
 	std::string text( "Some simple text" );
 
 	// Twice at this point (second and third run_at_once) 
-	// system automatically dump internal info.
+	// system automatically dumps the internal info.
 	reg<std::string> reg_text( text );
 
 	deep_function();
@@ -119,7 +119,7 @@ int main()
 	// Check collector info.
 	if ( !ex_diag::get_collector_instance().empty() )
 	{
-		// Smth in collector.
+		// Smth in the collector.
 		// Change dump stream and dump.
 		ex_diag::get_err_stream_instance().set_stream( std::cout );
 		ex_diag::get_collector_instance().dump();
