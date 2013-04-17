@@ -34,7 +34,7 @@
 
 /*!
 	\file main.cpp
-	\brief This is simple example of exeption diagnostic.
+	\brief This is a simple example of exception diagnostic.
 		Nothing superfluous.
 
 	\detail 
@@ -66,10 +66,8 @@ deep_function()
 void
 pass_function()
 {
-	// Work instance.
-	std::string message( "Hello World!" );
-	// Auto-diagnostic instance.
-	ex_diag::reg<std::string> reg_message( message );
+	// Auto-diagnostic instance of message.
+	ex_diag::reg<const char *> reg_message( "Hello World!" );
 
 	deep_function();
 }
@@ -82,7 +80,7 @@ int main()
 	}
 	catch ( const std::exception & ex )
 	{
-		// Print collected info in cout stream.
+		// Print collected info into cout stream.
 		std::cout << 
 			ex_diag::
 			get_collector_instance().info() << std::endl;
