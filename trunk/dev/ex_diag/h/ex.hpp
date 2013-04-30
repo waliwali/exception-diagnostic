@@ -32,6 +32,11 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/*!
+	\brief
+	\file ex.hpp class ex_t.
+*/
+
 #ifndef __EX_DIAG__EX_HPP__INCLUDED
 #define __EX_DIAG__EX_HPP__INCLUDED
 
@@ -39,7 +44,7 @@
 
 namespace ex_diag {
 
-//! Class of root exceptions using.
+//! Root exceptions using class.
 /*!
 	Information about falure will be available by method info().
 	If it method doesn't called then application automatically send 

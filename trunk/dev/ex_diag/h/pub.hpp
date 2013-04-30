@@ -32,6 +32,12 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/*!
+	\brief
+	\file pub.hpp include this file for overall using.
+
+*/
+
 #ifndef __EX_DIAG__PUB_HPP__INCLUDED
 #define __EX_DIAG__PUB_HPP__INCLUDED
 

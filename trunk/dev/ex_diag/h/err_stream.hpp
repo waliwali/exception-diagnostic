@@ -32,6 +32,11 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/*!
+	\brief
+	\file err_stream.hpp class err_stream_t.
+*/
+
 #ifndef __EX_DIAG__ERR_STREAM_HPP__INCLUDED
 #define __EX_DIAG__ERR_STREAM_HPP__INCLUDED
 
@@ -39,7 +44,7 @@
 
 namespace ex_diag {
 
-//! Controller of diagnostic stream.
+//! Controller of the diagnostic stream.
 /*!
 	Provide opportunity to change stream at failures.
 */
