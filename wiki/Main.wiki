@@ -20,6 +20,8 @@ The next guide page [ExampleOfAdvantages Example Of Advantages] can help you qui
 
 Besides, samples are present (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
 
+Also Doxygen [http://exception-diagnostic.googlecode.com/svn/tags/1.0.2/html/index.html documentation] is available.
+
 == Compile ==
 
 Library has been compiled and built on different operating systems. 
