@@ -103,21 +103,21 @@ class person_t
 		static unsigned int
 		get_new_number()
 		{
-			unsigned int number = 0;
+			static unsigned int number = 0;
 			++number;
 			return number;
 
 		}
 
 	private:
-		//! Age of person.
+		//! Person age.
 		unsigned int m_age;
 		reg<unsigned int> m_reg_age;
 
-		//! Name of person.
+		//! Person name.
 		const std::string m_name;
 
-		//! Number of person.
+		//! Person number.
 		unsigned int m_number;
 		reg<unsigned int> m_reg_number;
 };
