@@ -51,7 +51,7 @@ namespace ex_diag {
 class err_stream_t
 {
 	public:
-		//! Default stream is std::err.
+		//! Default stream is std::cerr.
 		err_stream_t();
 
 		//! Set new stream.

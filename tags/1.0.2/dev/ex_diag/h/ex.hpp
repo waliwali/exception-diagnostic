@@ -48,7 +48,7 @@ namespace ex_diag {
 /*!
 	Information about falure will be available by method info().
 	If it method doesn't called then application automatically send 
-	the information to the error stream. It's the std::err by default 
+	the information to the error stream. It's the std::cerr by default 
 	and can be changed by err_stream_t instance (see err_stream.hpp).
 */
 class ex_t
