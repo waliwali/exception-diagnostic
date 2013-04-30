@@ -32,6 +32,11 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/*!
+	\brief
+	\file ex.cpp class ex_t.
+*/
+
 #include <ex_diag/h/ex.hpp>
 
 #include <ex_diag/h/collector.hpp>

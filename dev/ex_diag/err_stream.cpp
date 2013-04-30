@@ -32,6 +32,11 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/*!
+	\brief
+	\file err_stream.cpp class err_stream_t.
+*/
+
 #include <ex_diag/h/err_stream.hpp>
 
 #include <iostream>

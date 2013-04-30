@@ -32,6 +32,11 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/*!
+	\brief
+	\file collector.hpp class collector_t.
+*/
+
 #ifndef __EX_DIAG__COLLECTOR_HPP__INCLUDED
 #define __EX_DIAG__COLLECTOR_HPP__INCLUDED
 
@@ -40,9 +45,10 @@
 
 namespace ex_diag {
 
+//! Default divide between different object dumps.
 const std::string default_delimiter = "\n";
 
-//! Collect info about failure.
+//! Collects info about failure.
 class collector_t
 {
 	public:

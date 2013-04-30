@@ -32,6 +32,12 @@
 	USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/*!
+	\brief
+	\file reg.hpp class reg_t<T>.
+*/
+
+
 #ifndef __EX_DIAG__REG_HPP__INCLUDED
 #define __EX_DIAG__REG_HPP__INCLUDED
 
@@ -42,6 +48,7 @@
 
 namespace ex_diag {
 
+//! Separates comment and value by default.
 const std::string default_comment_separator = ":";
 
 //! Class for registration instance to diagnostic.
