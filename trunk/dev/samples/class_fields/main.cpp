@@ -39,14 +39,14 @@
 	\detail 
 
 	Showed features:
-	* Registration of class fields.
-	* Auto dump if user forgot to get dump information 
-		at ex_diag::ex_t using.
+	* The registration of class fields.
+	* Auto dump if user forgot to get dump the information 
+		at the ex_diag::ex_t using.
 
 	Instances 'reg' have to be after their undercontrol instances.
 
-	Developer can get info from colletor or not. 
-	But if this info wasn't got, system automatically dump info 
+	Developer can get the info from the colletor or not. 
+	However, if this info wasn't got, the system automatically dump the info 
 		according to the actual options. 
 	This is showed for the ex_diag::ex_t behaviour.
 */
@@ -131,8 +131,8 @@ deep_function()
 
 //! Pass function. 
 /*!
-	This function have some instances which need 
-	to dump information at failure.
+	This function has some instances which need 
+	to dump information at the failure.
 */
 void
 pass_function()
@@ -151,8 +151,8 @@ int main()
 	}
 	catch ( const ex_diag::ex_t & ex )
 	{
-		// User forgot dump in some stream.
-		// System automatically dump into std::cerr 
+		// User forgot the dump.
+		// The system automatically dumps into the std::cerr 
 		// according to actual options.
 	}
 

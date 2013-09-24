@@ -8,7 +8,7 @@ It's only C++ tool.
 
 = Details =
 
-So far application works fine this wrappers don't active. However, if application or sublibrary throws exception, and application catches this, library tools allow get all diagnostic information about objects which had been destroyed.
+Whereas application works fine these wrappers are not active. However, if application or sublibrary throws an exception, and the application catches it, library tools allow get all diagnostic information about objects which had been destroyed.
 
 Like stack trace it's the instance trace of the failure.
 
@@ -26,11 +26,11 @@ Also Doxygen [http://exception-diagnostic.googlecode.com/svn/tags/1.0.2/html/ind
 
 Library has been compiled and built on different operating systems. 
 
-It has tested with Microsoft Visual C++ 7.0/9.0 and gcc 4.1.2 compilers.
+It has tested with Microsoft Visual C++ 7.0/9.0 and GCC 4.1.2 compilers.
 
 == Features ==
 
-All types of instances can be wrapped and diagnosed by the library.
+All types of instances can be wrapped and diagnosed by this library.
 
 Diagnostic result can be sent to any std::ostream instance.
 

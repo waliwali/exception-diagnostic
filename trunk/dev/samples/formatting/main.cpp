@@ -40,14 +40,14 @@
 
 	Showed features:
 	* Special comments for instances.
-	* Delimiters of group dumping.
+	* Delimiters of the group dumping.
 	* Registration of received by function instances.
 
-	Delimiter can be set at any time of runtime.
+	Delimiter can be set at any time of the runtime.
 
 	We can register any instance at any point.
 
-	Comments can be used or not. Empty comment is equal to 'no comment'.
+	Comments can be used or not. Empty comment is equal to the 'no comment'.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -85,7 +85,7 @@ process_one(
 //! Pass function. 
 /*!
 	This function has some instances which need 
-	to dump information at failure.
+	to dump the information at the failure.
 */
 void
 process_all( unsigned int number )
@@ -107,7 +107,7 @@ process_all( unsigned int number )
 
 int main()
 {
-	// Set delimiter for sequence of dump pieces.
+	// Set the delimiter for the sequence of dump pieces.
 	ex_diag::get_collector_instance().set_delimiter( "; " );
 
 	try
@@ -116,7 +116,7 @@ int main()
 	}
 	catch ( const ex_diag::ex_t & ex )
 	{
-		// Print collected info into cout stream.
+		// Print the collected info into the cout stream.
 		std::cout << ex.info() << std::endl;
 	}
 
