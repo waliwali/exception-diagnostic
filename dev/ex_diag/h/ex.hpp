@@ -44,34 +44,36 @@
 
 namespace ex_diag {
 
-//! Root exceptions using class.
+//! Root class for exceptions using.
 /*!
-	Information about falure will be available by method info().
-	If it method doesn't called then application automatically send 
+	Information about failure will be available by the method info().
+	If it method doesn't called then the application automatically send 
 	the information to the error stream. It's the std::cerr by default 
-	and can be changed by err_stream_t instance (see err_stream.hpp).
+	and can be changed by the err_stream_t instance.
+
+	\see err_stream_t
 */
 class ex_t
 {
 	public:
-		//! Default ctor.
+		//! Default c'tor.
 		/*!
-			Use default collector.
+			ex_t will use the default collector.
 		*/
 		ex_t();
 
 		/*!
-			\note if someone doesn't get info about failure, 
-			this dtor dump info into the error stream.
+			\note if someone doesn't get all info about failure, 
+			this d'tor dumps the info into the error stream.
 
 		*/
 
 		virtual
 		~ex_t() throw() ;
 
-		//! Get info about failure.
+		//! Get info about the failure.
 		/*!
-			Return all collected info about failure.
+			Return all collected info about the failure.
 		*/
 		std::string
 		info() const;

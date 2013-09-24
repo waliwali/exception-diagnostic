@@ -46,7 +46,7 @@ namespace ex_diag {
 
 //! Controller of the diagnostic stream.
 /*!
-	Provide opportunity to change stream at failures.
+	Provide opportunity to change the diagnostic stream at failures.
 */
 class err_stream_t
 {
@@ -54,21 +54,21 @@ class err_stream_t
 		//! Default stream is std::cerr.
 		err_stream_t();
 
-		//! Set new stream.
+		//! Set a new stream.
 		void
 		set_stream( 
 			//! This stream will use after set.
 			std::ostream & o );
 
-		//! Get actual stream.
+		//! Get the actual stream.
 		/*!
-			\return object of actual stream.
+			\return object of the actual stream.
 		*/
 		std::ostream &
 		stream();
 
 	private:
-		//! Stream of unexpected diagnostic.
+		//! Stream of the unexpected diagnostic.
 		std::ostream * m_stream;
 };
 

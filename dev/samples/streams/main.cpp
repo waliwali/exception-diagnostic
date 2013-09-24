@@ -39,8 +39,8 @@
 	\detail 
 
 	Showed features:
-	* Changing of diagnostic stream.
-	* Auto dump if user forgot to get dump information 
+	* Changing of the diagnostic stream.
+	* Auto dump if user forgot to get dump the information 
 		at the ex_diag::ex_t using.
 	* Process dump info by hand.
 
@@ -70,7 +70,7 @@ deep_function()
 //! Pass function. 
 /*!
 	This function has some instances which need 
-	to dump information at the failure.
+	to dump the information at the failure.
 */
 void
 pass_function()
@@ -84,7 +84,7 @@ pass_function()
 	deep_function();
 }
 
-//! One run of main function.
+//! One run of the main function.
 void
 run_at_once()
 {
@@ -98,29 +98,29 @@ run_at_once()
 		// User doesn't use diagnostic exception type, 
 		// and auto-dumping is off.
 
-		// However, first try of registration (after such stack 
-		// unwiding) will automatically dump info.
+		// However, first try of the registration (after such stack 
+		// unwiding) will automatically dump the info.
 	}
 }
 
 int main()
 {
-	// Dump into log_file.
+	// Dump into the log_file.
 	std::ofstream log_file( "log_file" );
 	ex_diag::get_err_stream_instance().set_stream( log_file );
 
-	// Three runs.
+	// Runs three times.
 	// Only two of them will dump automatically.
 	run_at_once();
 	run_at_once();
 	run_at_once();
 
-	// We can pull down info by ourself.
-	// Check collector info.
+	// We can pull down the info by ourself.
+	// Check the collector info.
 	if ( !ex_diag::get_collector_instance().empty() )
 	{
 		// Smth in the collector.
-		// Change dump stream and dump.
+		// Change the dump stream and dump.
 		ex_diag::get_err_stream_instance().set_stream( std::cout );
 		ex_diag::get_collector_instance().dump();
 	}

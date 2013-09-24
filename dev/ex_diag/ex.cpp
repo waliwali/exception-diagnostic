@@ -62,7 +62,7 @@ ex_t::~ex_t() throw()
 	}
 	catch ( ... )
 	{
-		// Defense of dtor.
+		// Defense of the d'tor.
 	}
 }
 

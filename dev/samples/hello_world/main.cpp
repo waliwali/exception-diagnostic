@@ -34,15 +34,15 @@
 
 /*!
 	\file main.cpp
-	\brief This is a simple example of exception diagnostic.
+	\brief This is a simple example of the exception diagnostic.
 		Nothing superfluous.
 
 	\detail 
 
 	Showed features:
-	* Syntax of registration of instance.
-	* Intercepting of information.
-	* Receiving of collected information.
+	* The syntax of the instance registration.
+	* Information øntercepting.
+	* Receiving of the collected information.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -60,13 +60,13 @@ deep_function()
 
 //! Pass function. 
 /*!
-	This function have instances which need 
-	to dump information at failure.
+	This function has instances which need 
+	to dump the information at the failure.
 */
 void
 pass_function()
 {
-	// Auto-diagnostic instance of message.
+	// Auto-diagnostic instance of the message.
 	ex_diag::reg<const char *> reg_message( "Hello World!" );
 
 	deep_function();
@@ -80,7 +80,7 @@ int main()
 	}
 	catch ( const std::exception & ex )
 	{
-		// Print collected info into cout stream.
+		// Print the collected info into the cout stream.
 		std::cout << 
 			ex_diag::
 			get_collector_instance().info() << std::endl;

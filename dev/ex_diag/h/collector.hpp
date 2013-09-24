@@ -52,7 +52,7 @@ const std::string default_delimiter = "\n";
 class collector_t
 {
 	public:
-		//! Default ctor.
+		//! Default c'tor.
 		/*! 
 			Info empty, delimiter is "\n".
 		*/
@@ -63,13 +63,13 @@ class collector_t
 		*/
 		~collector_t() throw();
 
-		//! Add info to collector.
+		//! Add info to the collector.
 		/*!
-			\note usually one piece of info.
+			\note usually one piece of the info.
 		*/
 		void
 		add( 
-			//! One piece of information to collect.
+			//! One piece of the information to collect.
 			const std::string & info );
 
 		//! Get collected info.
@@ -83,22 +83,22 @@ class collector_t
 		void
 		clear();
 
-		//! Have smth new info or not.
+		//! collector_t has smth new info or not.
 		/*!
-			\retval true add() was, but later info() not.
+			\retval true add() was, but subsequently info() was not called.
 		*/
 		bool
 		have_actual_info() const;
 
-		//! Set delimiter at adding.
+		//! Set the delimiter at adding.
 		void
 		set_delimiter( 
-			//! Delimiter of collecting.
+			//! Delimiter of the collecting.
 			const std::string & delimiter );
 
-		//! Get info from collector and dump according to the actual options.
+		//! Get info from this collector and dump according to the actual options.
 		/*!
-			\note clear internal info of collector.
+			\note clear internal info of the collector.
 		*/
 		void
 		dump();
@@ -115,13 +115,13 @@ class collector_t
 		bool m_have_actual_info;
 		//! All collected info.
 		std::string m_info;
-		//! Delimiter between pieces of collection.
+		//! Delimiter between pieces of the collection.
 		std::string m_delimiter;
 };
 
-//! Inserting into collector info about object.
+//! Inserting into collector an info about the object.
 /*!
-	Collector can use any instance to diagnostic 
+	The collector can use any instance to diagnostic 
 		which overload this << operator.
 */
 template <class T>

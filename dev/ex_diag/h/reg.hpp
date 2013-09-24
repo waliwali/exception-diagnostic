@@ -51,17 +51,17 @@ namespace ex_diag {
 //! Separates comment and value by default.
 const std::string default_comment_separator = ":";
 
-//! Class for registration instance to diagnostic.
+//! Class for registration an instance to diagnostic.
 template <class T>
 class reg
 {
 	public:
 		//! Save link to the instance.
 		/*!
-			\note automatically dump collector if it not empty.
+			\note object automatically dumps the collector if it's not empty.
 		*/
 		reg( 
-			//! Instance under control.
+			//! The instance under control.
 			const T & instance, 
 			//! Comment to this instance. Default - no comment.
 			const std::string & comment = "" ) 
@@ -97,7 +97,7 @@ class reg
 				}
 				catch ( ... )
 				{
-					// Defense of dtor.
+					// Defense of the d'tor.
 				}
 			}
 		}
