@@ -2,9 +2,9 @@
 
 = Function =
 
-Let's look at the following function. This is an example and it's a part of the action code.
+Let's look at a following function. This is an example, and it's a part of the action code.
 
-Function parses some information of the special data-file, checks it and converts into the internal representation.
+The function parses some information of the special data-file, checks it and converts into an internal representation.
 
 Only notice, that the function has several sub-functions: get_utfmarker_line(), check_elements(), getline(), check_and_union_ranges().
 
@@ -53,7 +53,7 @@ parse_file( const std::string & filename )
 
 Let's imagine, that we need to describe the context 'filename' if something wrong happened at this function. In other words, if an exception occurs, we would like to diagnose (log/send/show/..) the filename.
 
-How we can do it?
+How can we do it?
 
 There are two examples of the conventional solution below.
 
@@ -79,11 +79,11 @@ parse_file( const std::string & filename )
 }}}
 
 This way has several drawbacks:
- * We need to capture all types of exceptions. As a result:
+ * We need to capture all exception types. As a result:
    * A lot of catches (it leads to the huge code).
-   * We can easy forget some type of exception at catch.
+   * We can easy forget some exception type at catch.
    * We can't catch unknown types of exceptions.
- * We need to write try (1) and catch (2) - it's two places of the control. And we have to add one extra tab to all lines of the function. All of this increases complexity of the code perception.
+ * We need to write try (1) and catch (2) - it's two places for the control. And we have to add one extra tab to all lines of the function. All of these increases complexity of the code perception.
  * Catch initiates a c'tor of the exception instance (ex).
 
 == Second: pass info to sub-functions ==
@@ -119,13 +119,13 @@ parse_file( const std::string & filename )
 There are several disadvantages:
  * One extra parameter to the every function:
    * The code will be more complex and support will be painful.
-   * We must control every function. And most likely, we'll forget some of these functions.
+   * We must control every function. And most likely, we'll forget some of them.
    * Besides of passing parameter to the function, we need to add the information about filename to every throw place.
- * We can't control foreign exceptions.
+ * We can't control external exceptions.
 
 = Library solution = 
 
-This library provide a wrapper, which automatically collects information if exception occurs.
+The library provide a wrapper, which collects information automatically if exception occurs.
 
 To do it, we need to add just one line:
 
@@ -159,4 +159,4 @@ Or do nothing if we have the ex-inheritor instance:
 	}
 }}}
 
-After a while of wide using, this library allows quickly understand stack traces of failures and makes development easier at all stages.
+After a while of wide using, the library allows quickly understand stack traces of failures and makes development easier at all stages.
