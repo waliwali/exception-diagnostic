@@ -2,23 +2,23 @@
 
 = Introduction =
 
-This library allows use simple cpp-constructions for diagnistic different exception crashes in the future.
+The library allows to use simple cpp-constructions to diagnose different exception crashes in the future.
 
 It's only C++ tool.
 
 = Details =
 
-Whereas application works fine these wrappers are not active. However, if application or sublibrary throws an exception, and the application catches it, library tools allow get all diagnostic information about objects which had been destroyed.
+Whereas application works fine these wrappers are not active. However, if application or sublibrary throws an exception, and the application catches it, library tools allow to get all diagnostic information about objects which had been destroyed.
 
-Like stack trace it's the instance trace of the failure.
+It's like stack trace, but it's the instance trace of the failure.
 
-Library provides special easy-using tools of this funtionality.
+The library provides some special easy-using tools of described funtionality.
 
 Look at the [QuickGeneralDescription Quick General Description]. This page shows general features quickly and graphically.
 
-The next guide page [ExampleOfAdvantages Example Of Advantages] can help you quickly and completely understand usefulness of the library.
+The next guide page [ExampleOfAdvantages Example Of Advantages] can help you to understand quickly and completely the library usefulness.
 
-Besides, samples are present (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
+Besides, samples are presented (see [http://code.google.com/p/exception-diagnostic/source/browse/ subversion trunk/tags]).
 
 Also Doxygen [http://exception-diagnostic.googlecode.com/svn/tags/1.0.2/html/index.html documentation] is available.
 
@@ -26,13 +26,13 @@ Also Doxygen [http://exception-diagnostic.googlecode.com/svn/tags/1.0.2/html/ind
 
 Library has been compiled and built on different operating systems. 
 
-It has tested with Microsoft Visual C++ 7.0/9.0 and GCC 4.1.2 compilers.
+It has been tested with Microsoft Visual C++ 7.0/9.0/11.0 and GCC 4.1.2 compilers.
 
 == Features ==
 
 All types of instances can be wrapped and diagnosed by this library.
 
-Diagnostic result can be sent to any std::ostream instance.
+A diagnostic result can be sent to any std::ostream instance.
 
 Cross-compile.
 
