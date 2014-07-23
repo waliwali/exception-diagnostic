@@ -2,9 +2,9 @@
 
 = Function =
 
-Let's look at a following function. This is an example, and it's a part of the action code.
+Let's look at a following function. This is an example, and it's a part of an action code.
 
-The function parses some information of the special data-file, checks it and converts into an internal representation.
+The function parses some information of a special data-file, checks it and converts into some internal representation.
 
 Only notice, that the function has several sub-functions: get_utfmarker_line(), check_elements(), getline(), check_and_union_ranges().
 
@@ -51,13 +51,13 @@ parse_file( const std::string & filename )
 
 = Problem =
 
-Let's imagine, that we need to describe the context 'filename' if something wrong happened at this function. In other words, if an exception occurs, we would like to diagnose (log/send/show/..) the filename.
+Let's imagine, that we need to describe the context 'filename' if something wrong happened at the function. In other words, if an exception occurs, we would like to diagnose (log/send/show/..) the filename.
 
 How can we do it?
 
-There are two examples of the conventional solution below.
+There are two examples of a conventional solution below.
 
-== First: add info to flying exceptions ==
+== First: add info to passing exceptions ==
 
 {{{
 void
@@ -79,12 +79,12 @@ parse_file( const std::string & filename )
 }}}
 
 This way has several drawbacks:
- * We need to capture all exception types. As a result:
+ * We need to capture all of exception types. As a result:
    * A lot of catches (it leads to the huge code).
-   * We can easy forget some exception type at catch.
+   * We can easy forget some exception type at the catch block.
    * We can't catch unknown types of exceptions.
- * We need to write try (1) and catch (2) - it's two places for the control. And we have to add one extra tab to all lines of the function. All of these increases complexity of the code perception.
- * Catch initiates a c'tor of the exception instance (ex).
+ * We need to write try (1) and catch (2) - it's two places for the control. And we have to add an extra tab to all of function lines. All of these increases complexity of the code perception.
+ * The catch initiates a c'tor of the exception instance (ex).
 
 == Second: pass info to sub-functions ==
 
@@ -125,7 +125,7 @@ There are several disadvantages:
 
 = Library solution = 
 
-The library provide a wrapper, which collects information automatically if exception occurs.
+The library provide a wrapper, which collects information automatically if an exception occurs.
 
 To do it, we need to add just one line:
 
@@ -138,9 +138,9 @@ parse_file( const std::string & filename )
 
 }}}
 
-At end-points, where we capture exceptions, we can use all diagnostic information or it will be dumped automatically.
+At end-points, where we capture exceptions, we can use all of diagnostic information or it will be dumped automatically.
 
-Dump by hand:
+The dumping by hand:
 
 {{{
 	catch ( ... )
@@ -159,4 +159,4 @@ Or do nothing if we have the ex-inheritor instance:
 	}
 }}}
 
-After a while of wide using, the library allows quickly understand stack traces of failures and makes development easier at all stages.
+After a while of wide using, the library allows to understand quickly stack traces of failures and makes development easier at all of stages.
