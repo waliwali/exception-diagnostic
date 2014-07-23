@@ -78,7 +78,7 @@ read_file_to_string( std::istream & inp )
 	return result;
 }
 
-// Test of changing stream to file.
+// Test of changing stream to a file stream.
 TEST(Streams, File) 
 {
 	const std::string filename = "test.dump";
@@ -94,7 +94,7 @@ TEST(Streams, File)
 
 		test_function();
 
-		// test_function must throw exception.
+		// test_function must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
@@ -118,7 +118,7 @@ TEST(Streams, File)
 	ex_diag::get_err_stream_instance().set_stream( std::cerr );
 }
 
-// Test of changing stream to string stream.
+// Test changing stream to a string stream.
 TEST(Streams, StringStream) 
 {
 	std::stringstream stream;
@@ -129,7 +129,7 @@ TEST(Streams, StringStream)
 
 		test_function();
 
-		// test_function must throw exception.
+		// test_function must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )

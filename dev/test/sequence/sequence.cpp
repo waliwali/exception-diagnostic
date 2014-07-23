@@ -34,7 +34,7 @@
 
 /*!
 	\file base.cpp
-	\brief Test sequence of registration and dumping.
+	\brief Test registration and dumping sequence.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -73,7 +73,7 @@ TEST(Sequence, FunctionStack)
 	{
 		one_stack_test();
 
-		// one_stack_test must throw exception.
+		// one_stack_test must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
@@ -99,7 +99,7 @@ deep_function_stack()
 	throw std::runtime_error( "Boom!" );
 }
 
-//! First function of stack.
+//! The first stack function.
 void
 function_stack()
 {
@@ -116,7 +116,7 @@ TEST(Sequence, DeepFunctionStack)
 	{
 		function_stack();
 
-		// function_stack must throw exception.
+		// function_stack must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
@@ -130,7 +130,7 @@ TEST(Sequence, DeepFunctionStack)
 	ex_diag::get_collector_instance().clear();
 }
 
-//! Class with some fields.
+//! A class with some fields.
 class foo_t
 {
 	public:
@@ -139,11 +139,11 @@ class foo_t
 			m_field_a( "A" ), reg_field_a( m_field_a )
 		{}
 	private:
-		//! First created, last destroyed and dumped.
+		//! The first created, the last destroyed and dumped.
 		std::string m_field_a;
 		reg<std::string> reg_field_a;
 
-		//! Last created, first destriyed and dumped.
+		//! The last created, the first destroyed and dumped.
 		std::string m_field_b;
 		reg<std::string> reg_field_b;
 };
@@ -164,7 +164,7 @@ TEST(Sequence, ClassFields)
 	{
 		class_fields_test();
 
-		// class_fields_test must throw exception.
+		// class_fields_test must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )

@@ -47,16 +47,16 @@
 
 using ex_diag::reg;
 
-//! Some deep funtion, under the pass function.
+//! Some deep function, under the pass function.
 void
 deep_function()
 {
 	throw std::runtime_error( "Boom!" );
 }
 
-//! Pass function. 
+//! A pass function. 
 /*!
-	This function have instances which need 
+	The function has instances which need 
 	to dump information at failure.
 */
 void
@@ -75,7 +75,7 @@ TEST(InterceptInfo, Simple)
 	{
 		pass_function();
 
-		// pass_function must throw exception.
+		// pass_function must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
@@ -87,7 +87,7 @@ TEST(InterceptInfo, Simple)
 		EXPECT_STREQ( ex.what(), "Boom!" );
 	}
 
-	// Collector must be fill after get in catch (there are no clear() or dump() ).
+	// Collector must be filled after get in catch (there are no clear() or dump() ).
 	EXPECT_STREQ( 
 		ex_diag::get_collector_instance().info().c_str(), 
 		"120" );
@@ -115,7 +115,7 @@ TEST(InterceptInfo, EmptyAfterDump)
 		ex_diag::get_collector_instance().dump();
 	}
 
-	// Collector must be fill after get in catch (there are no clear() or dump() ).
+	// Collector must be filled after get in catch (there are no clear() or dump() ).
 	EXPECT_STREQ( 
 		ex_diag::get_collector_instance().info().c_str(), 
 		"" );

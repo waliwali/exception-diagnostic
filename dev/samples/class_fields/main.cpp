@@ -34,20 +34,20 @@
 
 /*!
 	\file main.cpp
-	\brief This example shows the diagnosis of class fields.
+	\brief This example shows a class fields diagnosis.
 
 	\detail 
 
-	Showed features:
-	* The registration of class fields.
+	Features, which are presented:
+	* The class fields registration.
 	* Auto dump if user forgot to get dump the information 
 		at the ex_diag::ex_t using.
 
-	Instances 'reg' have to be after their undercontrol instances.
+	Instances 'reg' have to be created after their undercontrol instances.
 
-	Developer can get the info from the colletor or not. 
-	However, if this info wasn't got, the system automatically dump the info 
-		according to the actual options. 
+	A developer can get the information from the collector or not. 
+	However, if information info wasn't got, the system automatically dumps 
+		the information according to the actual options. 
 	This is showed for the ex_diag::ex_t behaviour.
 */
 
@@ -59,7 +59,7 @@
 
 using ex_diag::reg;
 
-//! Route class of diagnostic exceptions.
+//! The root class of diagnostic exceptions.
 class general_ex_t : 
 	public std::runtime_error, 
 	public ex_diag::ex_t
@@ -73,7 +73,7 @@ class general_ex_t :
 
 };
 
-//! Simple person class.
+//! A simple person class.
 class person_t
 {
 	public:
@@ -110,19 +110,19 @@ class person_t
 		}
 
 	private:
-		//! Person age.
+		//! Person's age.
 		unsigned int m_age;
 		reg<unsigned int> m_reg_age;
 
-		//! Person name.
+		//! Person's name.
 		const std::string m_name;
 
-		//! Person number.
+		//! Person's number.
 		unsigned int m_number;
 		reg<unsigned int> m_reg_number;
 };
 
-//! Some very deep funtion, under the deep function.
+//! Some very deep function, under the deep function.
 void
 deep_function()
 {
@@ -131,8 +131,8 @@ deep_function()
 
 //! Pass function. 
 /*!
-	This function has some instances which need 
-	to dump information at the failure.
+	The function has some instances which need 
+	to dump their information at the failure.
 */
 void
 pass_function()
@@ -151,9 +151,9 @@ int main()
 	}
 	catch ( const ex_diag::ex_t & ex )
 	{
-		// User forgot the dump.
+		// The user forgot the dump.
 		// The system automatically dumps into the std::cerr 
-		// according to actual options.
+		// according to the actual options.
 	}
 
 	return 0;

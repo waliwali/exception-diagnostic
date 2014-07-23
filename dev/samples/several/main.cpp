@@ -38,20 +38,20 @@
 
 	\detail 
 
-	Showed features:
-	* Several levels and the sequence of diagnostic dump.
+	Features, which are presented:
+	* Several levels and the diagnostic dump sequence.
 	* Several instances in one function and their sequence.
 	* User instances.
 	* User exceptions.
-	* Simple way of using ex_diag::ex_t class.
+	* A simple way of using ex_diag::ex_t class.
 
 	The system controls actual state of the instance: 
 	diagnosis get only a value which was at the exception moment.
 
-	The diagnostic info of instances will be printed in the reverse order,
+	The diagnostic information about instances will be printed in the reverse order,
 		according to the d'tor calls.
 
-	\note For diagnose of our class is required : overloading of the '<<'-operator.
+	\note For class diagnose a overloading of the '<<'-operator is required.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -62,7 +62,7 @@
 
 using ex_diag::reg;
 
-//! Route class of diagnostic exceptions.
+//! The root class of diagnostic exceptions.
 class general_ex_t : 
 	public std::runtime_error, 
 	public ex_diag::ex_t
@@ -76,15 +76,15 @@ class general_ex_t :
 
 };
 
-//! Special user class.
+//! A special user class.
 /*!
-	To diag we need to overload << operator.
+	To diag we need to overload '<<' operator.
 */
 class foo_t
 {
 };
 
-//! Dumping into the stream 'o' info about the instance 'f'.
+//! The dumping into the stream 'o' information about the instance 'f'.
 std::ostream &
 operator << ( std::ostream & o, const foo_t & f )
 {
@@ -100,13 +100,13 @@ very_deep_function()
 
 //! Some deep funtion, under the pass function.
 /*!
-	This function has some instance which need 
+	The function has some instance which need 
 	to dump the information at the failure.
 */
 void
 deep_function()
 {
-	// Const instance.
+	// A 'const' instance.
 	const std::string const_string( "const_string" );
 	reg<const std::string> reg_const_string( const_string );
 
@@ -117,15 +117,15 @@ deep_function()
 	very_deep_function();
 }
 
-//! Pass function. 
+//! A pass function. 
 /*!
-	This function has some instances which need 
+	The function has some instances which need 
 	to dump the information at the failure.
 */
 void
 pass_function()
 {
-	// Basic-type instance.
+	// A basic-cpp-type instance.
 	int x = 100;
 	reg<int> reg_x( x );
 
@@ -136,7 +136,7 @@ pass_function()
 
 	deep_function();
 
-	// This instance will not be diagnosed.
+	// The instance will not be diagnosed.
 	std::string no_print( "no_print" );
 	reg<std::string> reg_no_print( no_print );
 }
@@ -149,7 +149,7 @@ int main()
 	}
 	catch ( const ex_diag::ex_t & ex )
 	{
-		// Print collected info into the cout stream.
+		// Print collected information into the std::cout stream.
 		std::cout << ex.info() << std::endl;
 	}
 

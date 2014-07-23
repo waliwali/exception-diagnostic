@@ -34,7 +34,7 @@
 
 /*!
 	\file base.cpp
-	\brief Test formatting of info.
+	\brief Test formatting of information.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -61,14 +61,14 @@ test_function()
 	throw std::runtime_error( "Boom!" );
 }
 
-// Test of default formatting.
+// Default formatting test.
 TEST(Formatting, DelimiterDefault) 
 {
 	try
 	{
 		test_function();
 
-		// test_function must throw exception.
+		// test_function must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
@@ -95,7 +95,7 @@ test_user_delimiter( const std::string & user_delimiter )
 
 		test_function();
 
-		// test_function must throw exception.
+		// test_function must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
@@ -149,7 +149,7 @@ TEST(Formatting, Comment)
 	{
 		test_comment_function();
 
-		// test_comment_function must throw exception.
+		// test_comment_function must throw an exception.
 		FAIL();
 	}
 	catch ( const std::exception & ex )
