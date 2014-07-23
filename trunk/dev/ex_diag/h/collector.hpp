@@ -45,47 +45,47 @@
 
 namespace ex_diag {
 
-//! Default divide between different object dumps.
+//! Default separator between different object dumps.
 const std::string default_delimiter = "\n";
 
-//! Collects info about failure.
+//! This instance collects information about failure.
 class collector_t
 {
 	public:
 		//! Default c'tor.
 		/*! 
-			Info empty, delimiter is "\n".
+			Information is absent, delimiter is "\n".
 		*/
 		collector_t();
 
 		/*! 
-			Trying to dump() if not empty.
+			Trying to dump() if it's not empty.
 		*/
 		~collector_t() throw();
 
-		//! Add info to the collector.
+		//! Add information to the collector.
 		/*!
-			\note usually one piece of the info.
+			\note usually one piece of the information.
 		*/
 		void
 		add( 
-			//! One piece of the information to collect.
+			//! Oneinformation piece to collect.
 			const std::string & info );
 
-		//! Get collected info.
+		//! Get collected information.
 		/*!
-			\return all collected info.
+			\return all of collected information.
 		*/
 		std::string
 		info();
 
-		//! Clear collected info.
+		//! Clear collected information.
 		void
 		clear();
 
-		//! collector_t has smth new info or not.
+		//! collector_t has smth new information or not.
 		/*!
-			\retval true add() was, but subsequently info() was not called.
+			\retval true add() was invoked, but subsequently info() was not called.
 		*/
 		bool
 		have_actual_info() const;
@@ -93,17 +93,17 @@ class collector_t
 		//! Set the delimiter at adding.
 		void
 		set_delimiter( 
-			//! Delimiter of the collecting.
+			//! Collecting delimiter.
 			const std::string & delimiter );
 
-		//! Get info from this collector and dump according to the actual options.
+		//! Get information from the collector and dump according to the actual options.
 		/*!
-			\note clear internal info of the collector.
+			\note clear internal information of the collector.
 		*/
 		void
 		dump();
 
-		//! Empty collector or not.
+		//! The collector is empty or not.
 		/*!
 			\retval true empty.
 		*/
@@ -111,18 +111,18 @@ class collector_t
 		empty() const;
 
 	private:
-		//! All info was got or not.
+		//! All of information was got or not.
 		bool m_have_actual_info;
-		//! All collected info.
+		//! All of collected information.
 		std::string m_info;
-		//! Delimiter between pieces of the collection.
+		//! The delimiter between pieces of the collection.
 		std::string m_delimiter;
 };
 
-//! Inserting into collector an info about the object.
+//! Inserting into the collector some information about the object.
 /*!
 	The collector can use any instance to diagnostic 
-		which overload this << operator.
+		which overloads this << operator.
 */
 template <class T>
 collector_t &
@@ -137,7 +137,7 @@ operator << ( collector_t & c, const T & v )
 
 //! Get default collector.
 /*!
-	\return object of providing collecting information about failure.
+	\return objectm which provides all of collected information about failure.
 */
 collector_t &
 get_collector_instance();

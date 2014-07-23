@@ -38,17 +38,17 @@
 
 	\detail 
 
-	Showed features:
-	* Changing of the diagnostic stream.
-	* Auto dump if user forgot to get dump the information 
-		at the ex_diag::ex_t using.
-	* Process dump info by hand.
+	Features, which are presented:
+	* How to change diagnostic stream.
+	* Auto dump if user forgot to get the information 
+		with the ex_diag::ex_t.
+	* How to dump information by hand.
 
 	If stack unwinding happened, the diagnostic system automatically dumps 
-	info at the first registration try.
+	information at the first registration try.
 
 	If developer doesn't use ex_diag::ex_t, 
-	he can process info by hand.
+	he can process information by hand.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -60,16 +60,16 @@
 
 using ex_diag::reg;
 
-//! Some very deep funtion, under the deep function.
+//! Some very deep function, under the deep function.
 void
 deep_function()
 {
 	throw std::runtime_error( "Boom!" );
 }
 
-//! Pass function. 
+//! A pass function. 
 /*!
-	This function has some instances which need 
+	The function has some instances which need 
 	to dump the information at the failure.
 */
 void
@@ -98,8 +98,8 @@ run_at_once()
 		// User doesn't use diagnostic exception type, 
 		// and auto-dumping is off.
 
-		// However, first try of the registration (after such stack 
-		// unwiding) will automatically dump the info.
+		// However, the first registration try (after such stack 
+		// unwiding) will automatically dump the information.
 	}
 }
 
@@ -115,12 +115,12 @@ int main()
 	run_at_once();
 	run_at_once();
 
-	// We can pull down the info by ourself.
-	// Check the collector info.
+	// We can pull down the information by ourself.
+	// Check the collector information.
 	if ( !ex_diag::get_collector_instance().empty() )
 	{
 		// Smth in the collector.
-		// Change the dump stream and dump.
+		// We're going to change the dump stream and dump.
 		ex_diag::get_err_stream_instance().set_stream( std::cout );
 		ex_diag::get_collector_instance().dump();
 	}

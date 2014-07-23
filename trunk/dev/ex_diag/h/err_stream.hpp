@@ -44,20 +44,20 @@
 
 namespace ex_diag {
 
-//! Controller of the diagnostic stream.
+//! The controller of the diagnostic stream.
 /*!
-	Provide opportunity to change the diagnostic stream at failures.
+	The instance provides opportunity to change the diagnostic stream of failures.
 */
 class err_stream_t
 {
 	public:
-		//! Default stream is std::cerr.
+		//! The default stream is std::cerr.
 		err_stream_t();
 
 		//! Set a new stream.
 		void
 		set_stream( 
-			//! This stream will use after set.
+			//! This stream will be used after set.
 			std::ostream & o );
 
 		//! Get the actual stream.
@@ -72,9 +72,9 @@ class err_stream_t
 		std::ostream * m_stream;
 };
 
-//! Get default error stream instance.
+//! Get a default error stream instance.
 /*!
-	\return object of providing default error stream.
+	\return object, which provides a default error stream.
 */
 err_stream_t &
 get_err_stream_instance();

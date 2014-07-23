@@ -61,7 +61,7 @@ class reg
 			\note object automatically dumps the collector if it's not empty.
 		*/
 		reg( 
-			//! The instance under control.
+			//! The instance to take over diagnostic control.
 			const T & instance, 
 			//! Comment to this instance. Default - no comment.
 			const std::string & comment = "" ) 

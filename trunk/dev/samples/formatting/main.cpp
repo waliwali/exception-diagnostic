@@ -34,20 +34,20 @@
 
 /*!
 	\file main.cpp
-	\brief This example shows format tools.
+	\brief The example shows format tools.
 
 	\detail 
 
-	Showed features:
+	Features, which are presented:
 	* Special comments for instances.
-	* Delimiters of the group dumping.
-	* Registration of received by function instances.
+	* Group dumping delimiters.
+	* The registration of received by function instances.
 
-	Delimiter can be set at any time of the runtime.
+	The delimiter can be set at any time of the runtime.
 
 	We can register any instance at any point.
 
-	Comments can be used or not. Empty comment is equal to the 'no comment'.
+	The comments can be used or not. An empty comment is equal to the 'no comment'.
 */
 
 #include <ex_diag/h/pub.hpp>
@@ -58,7 +58,7 @@
 
 using ex_diag::reg;
 
-//! Route class of diagnostic exceptions.
+//! The root class of diagnostic exceptions.
 class general_ex_t : 
 	public std::runtime_error, 
 	public ex_diag::ex_t
@@ -72,32 +72,32 @@ class general_ex_t :
 
 };
 
-//! Some deep funtion, under the pass function.
+//! Some deep function, under the pass function.
 void
 process_one( 
-	//! Value for processing.
+	//! A value for processing.
 	unsigned int value )
 {
 	if ( value == 3 )
 		throw general_ex_t( "Boom!" );
 }
 
-//! Pass function. 
+//! A pass function. 
 /*!
-	This function has some instances which need 
+	The function has some instances which need 
 	to dump the information at the failure.
 */
 void
 process_all( unsigned int number )
 {
-	// Registration of received instance.
+	// The registration of received instance.
 	reg<unsigned int> reg_number( number, "Overall numbers of task" );
 
-	// Internal counter.
+	// An internal counter.
 	unsigned int count = 0;
 	reg<unsigned int> reg_count( count, "Count of precessed numbers" );
 
-	// Process part.
+	// A process part.
 	for( unsigned int i = 0; i < number; ++i )
 	{
 		process_one( i );
@@ -116,7 +116,7 @@ int main()
 	}
 	catch ( const ex_diag::ex_t & ex )
 	{
-		// Print the collected info into the cout stream.
+		// Print the collected information into the std::cout stream.
 		std::cout << ex.info() << std::endl;
 	}
 
