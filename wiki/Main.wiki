@@ -24,13 +24,13 @@ Also Doxygen [http://exception-diagnostic.googlecode.com/svn/tags/1.0.2/html/ind
 
 == Compile ==
 
-Library has been compiled and built on different operating systems. 
+The library has been compiled and built on different operating systems. 
 
 It has been tested with Microsoft Visual C++ 7/9/11/12 and GCC 4.1.2/4.7.0 compilers.
 
 == Features ==
 
-All types of instances can be wrapped and diagnosed by this library.
+All types of instances can be wrapped and diagnosed with this library.
 
 A diagnostic result can be sent to any std::ostream instance.
 
